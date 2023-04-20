@@ -1,0 +1,10 @@
+{
+  "btnAdd": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnAdd",
+      "IOS:xpath="
+    ]
+  }
+}

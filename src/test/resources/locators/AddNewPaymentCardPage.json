@@ -1,0 +1,42 @@
+{
+  "txtCardName": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtCardName",
+      "IOS:xpath="
+    ]
+  },
+  "txtCardNumber": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtCardNumber",
+      "IOS:xpath="
+    ]
+  },
+  "spnMonth": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/spnMonth",
+      "IOS:xpath="
+    ]
+  },
+  "spnYear": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/spnYear",
+      "IOS:xpath="
+    ]
+  },
+  "lblErrorMessenger": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
+      "IOS:xpath="
+    ]
+  }
+}

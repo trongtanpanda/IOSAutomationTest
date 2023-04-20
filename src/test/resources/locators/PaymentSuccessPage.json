@@ -1,0 +1,34 @@
+{
+  "lblCardNumber": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtCardNumber",
+      "IOS:xpath="
+    ]
+  },
+  "lblCardHolderName": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtCardHolderName",
+      "IOS:xpath="
+    ]
+  },
+  "btnBackHome": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnBackHome",
+      "IOS:xpath="
+    ]
+  },
+  "lblNameRoomItem": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:xpath=//androidx.appcompat.widget.LinearLayoutCompat/android.widget.TextView[@resource-id='com.agest.bookingapp:id/txtRoomName']",
+      "IOS:xpath="
+    ]
+  }
+}

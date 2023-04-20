@@ -1,0 +1,83 @@
+{
+  "lblTitle": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:xpath=//android.widget.TextView[@text='%s']",
+      "IOS:xpath="
+    ]
+  },
+  "lblMessage": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/tvMessage",
+      "IOS:xpath="
+    ]
+  },
+  "btnOK": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnOK",
+      "IOS:xpath="
+    ]
+  },
+  "txtCheckInDay": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtCheckInDay",
+      "IOS:xpath="
+    ]
+  },
+  "txtCheckOutDay": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtCheckOutDay",
+      "IOS:xpath="
+    ]
+  },
+  "lblInfoRoomName": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:xpath=//android.widget.LinearLayout[@resource-id='com.agest.bookingapp:id/topPanel']/android.widget.TextView",
+      "IOS:xpath="
+    ]
+  },
+  "lblRoomName": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtRoomName",
+      "IOS:xpath="
+    ]
+  },
+  "btnBack": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnBack",
+      "IOS:xpath="
+    ]
+  },
+  "btnClose": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnClose",
+      "IOS:xpath="
+    ]
+  },
+  "btnConfirm": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnConfirm",
+      "IOS:xpath="
+    ]
+  }
+}
+

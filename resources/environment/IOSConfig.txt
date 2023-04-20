@@ -1,0 +1,10 @@
+bundleId=IOSDemoAppBookingRoomTP
+automationName=XCUITest
+fullReset=false
+newCommandTimeout=1000000
+wdaLocalPort=8100
+wdaStartupRetryInterval=1000000
+wdaConnectionTimeout=1000000
+wdaLaunchTimeout=1000000
+launchTimeout=20000
+wdaLocalPort=8100

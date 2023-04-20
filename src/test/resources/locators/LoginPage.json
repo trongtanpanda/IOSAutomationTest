@@ -1,0 +1,35 @@
+{
+  "txtEmail": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtEmail",
+      "IOS:xpath="
+    ]
+  },
+  "txtPassword": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtPassword",
+      "IOS:xpath="
+    ]
+  },
+  "btnLogin": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnLogin",
+      "IOS:xpath="
+    ]
+  },
+  "lblErrorMessenger": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
+      "IOS:xpath="
+    ]
+  }
+
+}

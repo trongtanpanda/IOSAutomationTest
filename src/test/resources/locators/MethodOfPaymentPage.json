@@ -1,0 +1,58 @@
+{
+  "lblPaymentTitle": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtTitlePayment",
+      "IOS:xpath="
+    ]
+  },
+  "btnPay": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/btnPay",
+      "IOS:xpath="
+    ]
+  },
+  "lblTotalPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtTotalPayment",
+      "IOS:xpath="
+    ]
+  },
+  "imgAddNewCardImage": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/imgAddNewCardImage",
+      "IOS:xpath="
+    ]
+  },
+  "lblCardNumber": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtCardNumber",
+      "IOS:xpath="
+    ]
+  },
+  "imgImageVisa": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/imgImageVisa",
+      "IOS:xpath="
+    ]
+  },
+  "imgImageJCB": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/imgImageJCB",
+      "IOS:xpath="
+    ]
+  }
+}
