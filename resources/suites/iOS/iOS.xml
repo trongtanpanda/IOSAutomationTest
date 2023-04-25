@@ -9,7 +9,7 @@
 		<parameter name="mediumTime" value="25" />
 		<parameter name="longTime" value="55" />
         <classes>
-            <class name="tests.pattern1.TC02_LoginSuccess"/>
+            <class name="tests.LoginPageTest"/>
         </classes>
     </test>
 </suite>

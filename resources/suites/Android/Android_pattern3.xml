@@ -9,9 +9,9 @@
         <parameter name="mediumTime" value="25" />
         <parameter name="longTime" value="55" />
         <classes>
-            <class name="tests.pattern3.TC01_CheckErrorMessage"/>
-            <class name="tests.pattern3.TC02_CanReserveADoubleRoom"/>
-            <class name="tests.pattern3.TC03_CanBookADoubleRoom"/>
+            <class name="tests.roomBooked.TC01_CheckErrorMessage"/>
+            <class name="tests.roomBooked.TC02_CanReserveADoubleRoom"/>
+            <class name="tests.roomBooked.TC03_CanBookADoubleRoom"/>
         </classes>
     </test>
 </suite>

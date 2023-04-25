@@ -1,6 +1,7 @@
-package pages.Login;
+package pages;
 
 import common.Constants;
+import common.User;
 import common.helpers.LanguageHelper;
 import common.helpers.LocatorFactory;
 import elements.Button;
@@ -13,7 +14,6 @@ public class LoginPage extends GeneralPage {
     protected TextBox txtPassword = new TextBox(LocatorFactory.getLocator("txtPassword"));
     protected Button btnLogin = new Button(LocatorFactory.getLocator("btnLogin"));
 
-    protected Button lblErrorMessenger = new Button(LocatorFactory.getLocator("lblErrorMessenger"));
 
     private void inputEmail(String email) {
         txtEmail.waitForVisibility(Constants.SHORT_TIME);
@@ -30,9 +30,9 @@ public class LoginPage extends GeneralPage {
         btnLogin.click();
     }
 
-    public void login(String email, String pwd) {
-        inputEmail(email);
-        inputPassword(pwd);
+    public void login(User user) {
+        inputEmail(user.getEmail());
+        inputPassword(user.getPassword());
         pressLoginButton();
     }
 
@@ -61,9 +61,5 @@ public class LoginPage extends GeneralPage {
 
     }
 
-    public String getErrorMessenger() {
-        lblErrorMessenger.waitForDisplay();
-        return lblErrorMessenger.getText().trim();
-    }
 }
 

@@ -8,7 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
-public class TestBase {
+public class TestBaseIOS {
 
 	@Parameters({ "language", "env", "defaultEnv", "shortTime", "mediumTime", "longTime" })
 	@BeforeMethod(alwaysRun = true)

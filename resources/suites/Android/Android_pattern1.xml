@@ -9,17 +9,17 @@
 		<parameter name="mediumTime" value="25" />
 		<parameter name="longTime" value="55" />
         <classes>
-<!--            <class name="tests.pattern1.TC01_LoginFailed"/>-->
-<!--            <class name="tests.pattern1.TC02_LoginSuccess"/>-->
-<!--            <class name="tests.pattern1.TC03_CheckErrorMessage"/>-->
-<!--            <class name="tests.pattern1.TC04_CanReserveASingleRoom"/>-->
-<!--            <class name="tests.pattern1.TC05_PaymentScreenNavigation"/>-->
-<!--            <class name="tests.pattern1.TC06_AddPaymentCardFailed"/>-->
-<!--            <class name="tests.pattern1.TC07_AddPaymentCardSuccess"/>-->
-<!--            <class name="tests.pattern1.TC08_DeletedPaymentCardSuccess"/>-->
-<!--            <class name="tests.pattern1.TC09_AddPaymentCardSuccess"/>-->
-<!--            <class name="tests.pattern1.TC10_CheckErrorMessage"/>-->
-            <class name="tests.pattern1.TC11_ShowCorrectRoom"/>
+<!--            <class name="tests.login.TC01_LoginFailed"/>-->
+<!--            <class name="tests.LoginPageTest"/>-->
+<!--            <class name="tests.login.TC03_CheckErrorMessage"/>-->
+<!--            <class name="tests.login.TC04_CanReserveASingleRoom"/>-->
+<!--            <class name="tests.login.TC05_PaymentScreenNavigation"/>-->
+<!--            <class name="tests.login.TC06_AddPaymentCardFailed"/>-->
+<!--            <class name="tests.login.TC07_AddPaymentCardSuccess"/>-->
+<!--            <class name="tests.login.TC08_DeletedPaymentCardSuccess"/>-->
+<!--            <class name="tests.login.TC09_AddPaymentCardSuccess"/>-->
+<!--            <class name="tests.login.TC10_CheckErrorMessage"/>-->
+            <class name="tests.LoginPageTest"/>
         </classes>
     </test>
 </suite>
