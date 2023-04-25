@@ -2,14 +2,11 @@ package pages;
 
 import common.Constants;
 import common.User;
-import common.helpers.LanguageHelper;
 import common.helpers.LocatorFactory;
 import elements.Button;
 import elements.TextBox;
-import pages.GeneralPage;
 
-public class LoginPage extends GeneralPage {
-    protected LanguageHelper lang = new LanguageHelper(GeneralPage.class);
+public class LoginPage {
     protected TextBox txtEmail = new TextBox(LocatorFactory.getLocator("txtEmail"));
     protected TextBox txtPassword = new TextBox(LocatorFactory.getLocator("txtPassword"));
     protected Button btnLogin = new Button(LocatorFactory.getLocator("btnLogin"));
