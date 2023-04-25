@@ -1,0 +1,67 @@
+{
+  "txtCheckIn": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCheckin"
+    ]
+  },
+  "txtCheckOut": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCheckout"
+    ]
+  },
+  "btnSearch": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnSearch"
+    ]
+  },
+  "checkInPicker": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=checkinPicker"
+    ]
+  },
+  "checkOutPicker": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=checkoutPicker"
+    ]
+  },
+  "btnCloseCheckInPk": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnCloseCheckinPk"
+    ]
+  },
+  "btnCloseCheckOutPk": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnCloseCheckoutPk"
+    ]
+  },
+  "lblHeader": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=lblHeader"
+    ]
+  }
+
+}

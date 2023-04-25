@@ -13,6 +13,8 @@ public class TestConstants {
 
 	public static final String BOOKED_ROOM = "予約した部屋";
 	public static final String LOGOUT = "ログアウト";
+	public static final String LBL_HEADER = "予約室";
+
 
 	//Pattern 1
 	public static final String TC01_FAILED_DATA = "abctest";
