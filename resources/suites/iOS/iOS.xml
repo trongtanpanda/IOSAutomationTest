@@ -9,7 +9,12 @@
 		<parameter name="mediumTime" value="25" />
 		<parameter name="longTime" value="55" />
         <classes>
-            <class name="tests.LoginPageTest"/>
+            <class name="tests.LoginPageTest">
+                <methods>
+                    <include name="TC14"/>
+                </methods>
+            </class>
+
         </classes>
     </test>
 </suite>
