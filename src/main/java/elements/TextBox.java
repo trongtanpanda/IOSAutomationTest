@@ -15,9 +15,6 @@ public class TextBox extends BaseElement {
     public void sendKeys(String value) {
         getElement().sendKeys(value);
     }
-    public void click() {
-        getElement().click();
-    }
     public void sendKeys(Keys value) {
         getElement().sendKeys(value);
     }

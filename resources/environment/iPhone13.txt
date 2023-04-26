@@ -1,5 +1,5 @@
 deviceName=iPhone 13
-udid=07B6E895-F02D-4E15-840B-5DA14849F941
+udid=A807322E-6509-4857-935A-C47E0231C1B9
 platformName=iOS
 platformVersion=15.0
 hubUrl=http://127.0.0.1:4723/wd/hub

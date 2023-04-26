@@ -5,7 +5,13 @@ public enum User {
     SUZUKI("suzuki","suzuki@yahoo.com","zoomping1144"),
     YAMOTO("yamoto","yamoto.kuruma@st.com","seikattu2023"),
     YAMAHA("yamaha","yamaha.z100@kikai.com","mensettu98"),
-    HONDA("honda","honda@moto.com","vision2022");
+    HONDA("honda","honda@moto.com","vision2022"),
+    WRONGEMAIL("wrongemail", "Hokane.edogawa@gmail.com", "zoomping1144"),
+    WRONGPASSWORD("wrongpassword", "tanaka@gmail.com", "Wrongpassword"),
+    WRONGEMAILANDPASSWORD("wrongemailandpassword", "tomioka.giyu@gmail.com", "wrongpassword"),
+    EMAILBLANK("emailblank","","vison2022"),
+    PASSWORDBLANK("passwordblank","Honda@moto.com", "");
+
 
     public final String name;
     public final String email;

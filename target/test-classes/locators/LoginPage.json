@@ -1,4 +1,12 @@
 {
+  "lblHeader": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtEmail",
+      "IOS:id=lblHeader"
+  ]
+},
   "txtEmail": {
     "locator": [
       "Browser:xpath=",
@@ -28,7 +36,16 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
-      "IOS:id="
+      "IOS:xpath=//XCUIElementTypeStaticText[@name=\"アカウントまたはパスワードが無効です\"]"
+    ]
+  },
+
+  "ErrorMessage": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
+      "IOS:id=有効なアカウントを入力してください"
     ]
   }
 

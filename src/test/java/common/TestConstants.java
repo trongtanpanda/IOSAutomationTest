@@ -14,6 +14,14 @@ public class TestConstants {
 	public static final String BOOKED_ROOM = "予約した部屋";
 	public static final String LOGOUT = "ログアウト";
 	public static final String LBL_HEADER = "予約室";
+	public static final String PLACEHOLDER_EMAIL = "メール";
+	public static final String PLACEHOLDER_PASSWORD = "パスワード";
+
+	public static final String ERRORMESSAGE = "有効なアカウントを入力してください";
+	public static final String LBLERRORMESSAGE = "アカウントまたはパスワードが無効です";
+
+	public static final String TC14PASSWORD = "vision2022";
+	public static final String TC14PASSWORDENCRYPTION = "••••••••••";
 
 
 	//Pattern 1

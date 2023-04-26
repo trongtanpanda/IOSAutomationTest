@@ -15,4 +15,8 @@ public class SelectBox extends BaseElement {
     public void selectByText(String option){
         new Select(getElement()).selectByVisibleText(option);
     }
+
+    public void selectByIndex(int index) {
+        new Select(getElement()).selectByIndex(index);
+    }
 }
