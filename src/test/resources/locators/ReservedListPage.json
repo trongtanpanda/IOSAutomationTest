@@ -13,9 +13,31 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
-      "IOS:id=lblHeader"
+      "IOS:id=btnSearchType"
     ]
   },
+
+  "btnSearchAllRecords": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
+      "IOS:xpath=//XCUIElementTypeButton[@name=\"全記録\"]\n"
+    ]
+  },
+
+  "btnSearchRange": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
+      "IOS:xpath=//XCUIElementTypeButton[@name=\"検索範囲\"]"
+    ]
+  },
+
+
+
+
 
   "txtCheckinDate": {
     "locator": [
