@@ -47,6 +47,8 @@ public class GeneralPage {
     }
 
     public void selectDate(Date date){
+        btnShowYearPicker.waitForVisibility(Constants.SHORT_TIME);
+        btnShowYearPicker.click();
         List<WebElement> values = DriverUtils.findElements(By.xpath("//XCUIElementTypePickerWheel"));
         int gapMonth = DateHelper.getMonthOfDate(date) - DateHelper.monthToNumber(values.get(0).getText());
         int gapYear = DateHelper.getYearOfDate(date) - Integer.parseInt(values.get(1).getText());
