@@ -20,7 +20,7 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=",
-      "IOS:id=btnSearch"
+      "IOS:id=Search"
     ]
   },
   "checkInPicker": {
@@ -39,7 +39,7 @@
       "IOS:id=checkoutPicker"
     ]
   },
-  "btnCloseCheckInPk": {
+  "btnCloseCheckInPicker": {
     "locator": [
       "Browser:xpath=",
       "AppBrowser:xpath=",
@@ -47,7 +47,7 @@
       "IOS:id=btnCloseCheckinPk"
     ]
   },
-  "btnCloseCheckOutPk": {
+  "btnCloseCheckOutPicker": {
     "locator": [
       "Browser:xpath=",
       "AppBrowser:xpath=",
