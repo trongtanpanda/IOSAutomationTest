@@ -7,7 +7,7 @@ public class TestConstants {
 	public static final String TEST_DATA_PATH = System.getProperty("user.dir") + "/src/test/resources/data/".replace("/", System.getProperty("file.separator"));
 	public static final String CSV_YOUTUBESEARCH = System.getProperty("user.dir") + "/src/test/resources/data/YoutubeData/".replace("/", System.getProperty("file.separator"));
 	public static final String CSV_CREATEACCOUNTGOOGLE = System.getProperty("user.dir") + "/src/test/resources/data/CreateAccountGoogleData/".replace("/", System.getProperty("file.separator"));
-
+	public static final String LBL_HEADER_RESERVEDLIST = "予約した部屋リスト";
 	public static final String EMAIL = "test";
 	public static final String PWD = "admin";
 

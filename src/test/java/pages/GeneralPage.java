@@ -6,6 +6,7 @@ import common.helpers.LocatorFactory;
 import drivers.DriverManager;
 import drivers.DriverUtils;
 import elements.Button;
+import elements.TextBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -14,14 +15,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import static common.helpers.Utils.sleep;
+
 public class GeneralPage {
     protected Button btnMenu = new Button(LocatorFactory.getLocator("btnMenu"));
     protected Button btnReserve = new Button(LocatorFactory.getLocator("btnReserve"));
     protected Button btnReservedList = new Button(LocatorFactory.getLocator("btnReservedList"));
     protected Button btnLogout = new Button(LocatorFactory.getLocator("btnLogout"));
+    protected TextBox txtCheckIn = new TextBox(LocatorFactory.getLocator("txtCheckIn"));
+    protected TextBox txtCheckout = new TextBox(LocatorFactory.getLocator("txtCheckOut"));
     protected Button btnShowYearPicker = new Button(LocatorFactory.getLocator("showYearPicker"));
     protected Button btnHideYearPicker = new Button(LocatorFactory.getLocator("hideYearPicker"));
-
+    protected Button btnCloseDatePicker = new Button(LocatorFactory.getLocator("btnCloseDatePicker"));
     public void logout(){
         btnMenu.waitForVisibility(Constants.SHORT_TIME);
         btnMenu.click();
@@ -43,7 +48,14 @@ public class GeneralPage {
         btnReserve.click();
     }
 
+    public boolean isMenuButtonDisplayed() {
+        btnMenu.waitForVisibility(Constants.SHORT_TIME);
+        return btnMenu.isDisplayed();
+    }
+
     public void selectDate(Date date){
+        btnShowYearPicker.waitForVisibility(Constants.SHORT_TIME);
+        btnShowYearPicker.click();
         List<WebElement> values = DriverUtils.findElements(By.xpath("//XCUIElementTypePickerWheel"));
         int gapMonth = DateHelper.getMonthOfDate(date) - DateHelper.monthToNumber(values.get(0).getText());
         int gapYear = DateHelper.getYearOfDate(date) - Integer.parseInt(values.get(1).getText());

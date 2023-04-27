@@ -1,5 +1,28 @@
 {
-
+  "txtCheckIn": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCheckin"
+    ]
+  },
+  "txtCheckOut": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCheckout"
+    ]
+  },
+  "btnSearch": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=Search"
+    ]
+  },
   "btnMenu": {
     "locator": [
       "Browser:xpath=",
@@ -34,8 +57,23 @@
       "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
       "IOS:id=ログアウト"
     ]
-  }, 
-  
+  },
+  "datePicker": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=datePicker"
+    ]
+  },
+  "btnCloseDatePicker": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnCloseDatePicker"
+    ]
+  },
   "showYearPicker": {
     "locator": [
       "Browser:xpath=",

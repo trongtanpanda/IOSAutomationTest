@@ -3,6 +3,7 @@ package pages;
 import common.Constants;
 import common.SearchType;
 import common.helpers.LocatorFactory;
+import elements.BaseElement;
 import elements.Button;
 import elements.Label;
 import elements.TextBox;
@@ -35,8 +36,29 @@ public class ReservedListPage extends GeneralPage {
         }
     }
 
+    public boolean isLabelHeaderrReservedListDisPlayed(String label){
+        return lblHeader.getText().equals(label);
+    }
+
+    public boolean isSearchTypeButtonDisplayed(){
+        return btnSearchType.isDisplayed();
+    }
+
     public void selectCheckinDate(Date date) {
         txtCheckinDate.click();
         selectDate(date);
+        btnCloseDatePicker.click();
+    }
+
+    public void selectCheckoutDate(Date date){
+        txtCheckoutDate.click();
+        selectDate(date);
+        btnCloseDatePicker.click();
+    }
+
+    public void searchReservedList(Date checkinDate, Date checkoutDate) {
+        selectCheckinDate(checkinDate);
+        selectCheckoutDate(checkoutDate);
+        btnSearch.click();
     }
 }

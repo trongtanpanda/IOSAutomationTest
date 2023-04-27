@@ -13,7 +13,7 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
-      "IOS:id=btnSearchType"
+      "IOS:xpath=//XCUIElementTypeButton[@name=\"btnSearchType\"]"
     ]
   },
 
