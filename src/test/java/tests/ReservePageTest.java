@@ -7,6 +7,9 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ReservePage;
 import tests.TestBaseIOS;
+
+import static common.helpers.Utils.sleep;
+
 public class ReservePageTest extends TestBaseIOS {
 
     @Test()
@@ -20,7 +23,9 @@ public class ReservePageTest extends TestBaseIOS {
         User user = User.TANAKA;
         loginPage.login(user);
         reservePage.searchData();
-
+        reservePage.selectRoom("201");
+        reservePage.gotoPayment();
+        sleep(10000);
         //WebElement txtEmail = DriverManager.getDriver().findElement(By.id("email"));
         //txtEmail.sendKeys("tanaka@gmail.com");
     }

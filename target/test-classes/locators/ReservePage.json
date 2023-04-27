@@ -1,28 +1,4 @@
 {
-  "txtCheckIn": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=txtCheckin"
-    ]
-  },
-  "txtCheckOut": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=txtCheckout"
-    ]
-  },
-  "btnSearch": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=Search"
-    ]
-  },
   "lblHeader": {
     "locator": [
       "Browser:xpath=",
@@ -54,6 +30,31 @@
       "Android:id=",
       "IOS:id=ツイン"
     ]
+  },
+  "lblTotal": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=total"
+    ]
+  },
+  "tblResult": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=searchList"
+    ]
+  },
+  "btnGotoPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnGotoPayment"
+    ]
   }
+
 
 }

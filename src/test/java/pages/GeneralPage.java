@@ -6,6 +6,7 @@ import common.helpers.LocatorFactory;
 import drivers.DriverManager;
 import drivers.DriverUtils;
 import elements.Button;
+import elements.DatePicker;
 import elements.TextBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -22,9 +23,12 @@ public class GeneralPage {
     protected Button btnLogout = new Button(LocatorFactory.getLocator("btnLogout"));
     protected TextBox txtCheckIn = new TextBox(LocatorFactory.getLocator("txtCheckIn"));
     protected TextBox txtCheckout = new TextBox(LocatorFactory.getLocator("txtCheckOut"));
+    protected Button btnSearch = new Button(LocatorFactory.getLocator("btnSearch"));
     protected Button btnShowYearPicker = new Button(LocatorFactory.getLocator("showYearPicker"));
     protected Button btnHideYearPicker = new Button(LocatorFactory.getLocator("hideYearPicker"));
     protected Button btnCloseDatePicker = new Button(LocatorFactory.getLocator("btnCloseDatePicker"));
+
+    protected DatePicker datePicker = new DatePicker(LocatorFactory.getLocator("datePicker"));
     public void logout(){
         btnMenu.waitForVisibility(Constants.SHORT_TIME);
         btnMenu.click();
@@ -47,6 +51,7 @@ public class GeneralPage {
     }
 
     public void selectDate(Date date){
+        datePicker.waitForVisibility(Constants.SHORT_TIME);
         btnShowYearPicker.waitForVisibility(Constants.SHORT_TIME);
         btnShowYearPicker.click();
         List<WebElement> values = DriverUtils.findElements(By.xpath("//XCUIElementTypePickerWheel"));
@@ -73,8 +78,10 @@ public class GeneralPage {
                 DriverManager.getDriver().executeScript("mobile: selectPickerWheelValue", params);
             }
         }
+        btnHideYearPicker.waitForVisibility(Constants.SHORT_TIME);
         btnHideYearPicker.click();
         WebElement dayElm = DriverManager.getDriver().findElement(By.id(Integer.toString(day)));
+        System.out.println(dayElm.isDisplayed());
         dayElm.click();
     }
 }
