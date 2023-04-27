@@ -6,6 +6,7 @@ import common.helpers.LocatorFactory;
 import drivers.DriverManager;
 import drivers.DriverUtils;
 import elements.Button;
+import elements.TextBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -19,9 +20,11 @@ public class GeneralPage {
     protected Button btnReserve = new Button(LocatorFactory.getLocator("btnReserve"));
     protected Button btnReservedList = new Button(LocatorFactory.getLocator("btnReservedList"));
     protected Button btnLogout = new Button(LocatorFactory.getLocator("btnLogout"));
+    protected TextBox txtCheckIn = new TextBox(LocatorFactory.getLocator("txtCheckIn"));
+    protected TextBox txtCheckout = new TextBox(LocatorFactory.getLocator("txtCheckOut"));
     protected Button btnShowYearPicker = new Button(LocatorFactory.getLocator("showYearPicker"));
     protected Button btnHideYearPicker = new Button(LocatorFactory.getLocator("hideYearPicker"));
-
+    protected Button btnCloseDatePicker = new Button(LocatorFactory.getLocator("btnCloseDatePicker"));
     public void logout(){
         btnMenu.waitForVisibility(Constants.SHORT_TIME);
         btnMenu.click();

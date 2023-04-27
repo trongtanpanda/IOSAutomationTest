@@ -23,44 +23,36 @@
       "IOS:id=Search"
     ]
   },
-  "checkInPicker": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=checkinPicker"
-    ]
-  },
-  "checkOutPicker": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=checkoutPicker"
-    ]
-  },
-  "btnCloseCheckInPicker": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=btnCloseCheckinPk"
-    ]
-  },
-  "btnCloseCheckOutPicker": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=",
-      "IOS:id=btnCloseCheckoutPk"
-    ]
-  },
   "lblHeader": {
     "locator": [
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=",
       "IOS:id=lblHeader"
+    ]
+  },
+  "rbAll": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=全て"
+    ]
+  },
+  "rbSingle": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=シングル"
+    ]
+  },
+  "rbTwin": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=ツイン"
     ]
   }
 

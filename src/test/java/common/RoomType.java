@@ -1,8 +1,5 @@
 package common;
 
 public enum RoomType {
-    ALL,
-    SINGLE,
-    TWIN,
-    DOUBLE
+    全て, シングル, ツイン
 }
