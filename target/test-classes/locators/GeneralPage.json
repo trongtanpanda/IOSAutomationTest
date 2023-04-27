@@ -34,5 +34,24 @@
       "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
       "IOS:id=ログアウト"
     ]
+  }, 
+  
+  "showYearPicker": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtEmail",
+      "IOS:id=Show year picker"
+    ]
+  },
+  
+  "hideYearPicker": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtEmail",
+      "IOS:id=Hide year picker"
+    ]
   }
+  
 }
