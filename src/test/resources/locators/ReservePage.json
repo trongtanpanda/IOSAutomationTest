@@ -46,6 +46,14 @@
       "Android:id=",
       "IOS:id=searchList"
     ]
+  },
+  "btnGotoPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnGotoPayment"
+    ]
   }
 
 

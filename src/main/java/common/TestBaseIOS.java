@@ -21,10 +21,10 @@ public class TestBaseIOS {
 		System.out.println("End test base");
 	}
 
-//	@AfterMethod(alwaysRun = true)
-//	public void afterTest() {
-//		DriverUtils.quit();
-//	}
+	@AfterMethod(alwaysRun = true)
+	public void afterTest() {
+		DriverUtils.quit();
+	}
 	
 	
 	public void Config() {
