@@ -1,9 +1,14 @@
 package pages;
 
+import common.Constants;
+import common.SearchType;
 import common.helpers.LocatorFactory;
+import elements.BaseElement;
 import elements.Button;
 import elements.Label;
 import elements.TextBox;
+
+import java.util.Date;
 
 public class ReservedListPage extends GeneralPage {
 
@@ -15,5 +20,45 @@ public class ReservedListPage extends GeneralPage {
 
     protected Button btnSearch = new Button(LocatorFactory.getLocator("btnSearch"));
 
+    protected Button btnSearchAllRecords = new Button(LocatorFactory.getLocator("btnSearchAllRecords"));
+    protected Button btnSearchRange = new Button(LocatorFactory.getLocator("btnSearchRange"));
 
+    public void changeSearchType(SearchType searchType){
+        btnSearchType.waitForVisibility(Constants.SHORT_TIME);
+        btnSearchType.click();
+        if(searchType == SearchType.RANGE){
+            btnSearchRange.waitForVisibility(Constants.SHORT_TIME);
+            btnSearchRange.click();
+        }
+        if(searchType == SearchType.ALL_RECORDS) {
+            btnSearchAllRecords.waitForVisibility(Constants.SHORT_TIME);
+            btnSearchAllRecords.click();
+        }
+    }
+
+    public boolean isLabelHeaderrReservedListDisPlayed(String label){
+        return lblHeader.getText().equals(label);
+    }
+
+    public boolean isSearchTypeButtonDisplayed(){
+        return btnSearchType.isDisplayed();
+    }
+
+    public void selectCheckinDate(Date date) {
+        txtCheckinDate.click();
+        selectDate(date);
+        btnCloseDatePicker.click();
+    }
+
+    public void selectCheckoutDate(Date date){
+        txtCheckoutDate.click();
+        selectDate(date);
+        btnCloseDatePicker.click();
+    }
+
+    public void searchReservedList(Date checkinDate, Date checkoutDate) {
+        selectCheckinDate(checkinDate);
+        selectCheckoutDate(checkoutDate);
+        btnSearch.click();
+    }
 }

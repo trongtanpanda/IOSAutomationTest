@@ -16,6 +16,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import static common.helpers.Utils.sleep;
+
 public class GeneralPage {
     protected Button btnMenu = new Button(LocatorFactory.getLocator("btnMenu"));
     protected Button btnReserve = new Button(LocatorFactory.getLocator("btnReserve"));
@@ -48,6 +50,11 @@ public class GeneralPage {
         btnMenu.click();
         btnReserve.waitForVisibility(Constants.SHORT_TIME);
         btnReserve.click();
+    }
+
+    public boolean isMenuButtonDisplayed() {
+        btnMenu.waitForVisibility(Constants.SHORT_TIME);
+        return btnMenu.isDisplayed();
     }
 
     public void selectDate(Date date){
