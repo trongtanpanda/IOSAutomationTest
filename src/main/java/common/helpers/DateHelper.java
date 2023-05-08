@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -29,5 +30,9 @@ public class DateHelper {
         LocalDate startDate = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate endDate = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return Math.abs(ChronoUnit.DAYS.between(startDate,endDate));
+    }
+
+    public static Date addDate(Date date, int days) {
+        return new Date(date.getTime() + (days * (1000 * 24 * 60 * 60)));
     }
 }
