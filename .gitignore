@@ -1,4 +1,4 @@
-./.idea/*
-./allure-results/*
-./resources/*
-./target/*
+.idea/*
+allure-results/*
+resources/*
+target/*

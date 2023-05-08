@@ -1,7 +1,0 @@
-appPackage=com.agest.bookingapp
-appActivity=com.agest.bookingapp.View.Login.LoginActivity
-noReset=false
-newCommandTimeout=10000
-adbExecTimeout=2000000
-appWaitDuration=1500000
-deviceReadyTimeout=300

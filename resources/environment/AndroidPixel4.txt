@@ -1,6 +1,0 @@
-deviceName=emulator-5554
-platformName=Android
-hubUrl=http://127.0.0.1:4723/wd/hub
-configuration=AndroidConfig
-language=ja
-locale=JP

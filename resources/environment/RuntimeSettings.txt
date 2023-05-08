@@ -1,4 +1,0 @@
-runMode = local
-
-screenshotInfo=false
-screenshotVerify=true
