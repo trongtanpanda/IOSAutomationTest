@@ -54,7 +54,62 @@
       "Android:id=",
       "IOS:id=btnGotoPayment"
     ]
+  },
+  "btnPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnPayment"
+    ]
   }
-
-
+  ,
+  "btnBack": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnBack"
+    ]
+  } ,
+  "optPrepay": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=opt1"
+    ]
+  },
+  "optPostPaid": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=opt0"
+    ]
+  },
+  "btnOk": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=Ok"
+    ]
+  },
+  "btnCancel": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=キャンセル"
+    ]
+  },
+  "btnAlertOk": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=OK"
+    ]
+  }
 }
