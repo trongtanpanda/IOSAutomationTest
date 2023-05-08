@@ -6,7 +6,6 @@ import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ReservePage;
-import tests.TestBaseIOS;
 
 import static common.helpers.Utils.sleep;
 
@@ -23,8 +22,11 @@ public class ReservePageTest extends TestBaseIOS {
         User user = User.TANAKA;
         loginPage.login(user);
         reservePage.searchData();
-        reservePage.selectRoom("201");
+        reservePage.selectRoomByName("401");
         reservePage.gotoPayment();
+        reservePage.payment();
+        reservePage.agreePayment();
+        reservePage.closeAlert();
         sleep(10000);
         //WebElement txtEmail = DriverManager.getDriver().findElement(By.id("email"));
         //txtEmail.sendKeys("tanaka@gmail.com");
