@@ -1,6 +1,0 @@
-deviceName=iPhone 13
-udid=E8E28058-DD66-4C36-ABE7-2D4154BCD292
-platformName=iOS
-platformVersion=15.0
-hubUrl=http://127.0.0.1:4723/wd/hub
-configuration=IOSConfig
