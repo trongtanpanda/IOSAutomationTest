@@ -26,7 +26,7 @@ public class ReservePageTest extends TestBaseIOS {
         reservePage.gotoPayment();
         reservePage.payment();
         reservePage.agreePayment();
-        reservePage.closeAlert();
+        reservePage.closeDialog();
         sleep(10000);
         //WebElement txtEmail = DriverManager.getDriver().findElement(By.id("email"));
         //txtEmail.sendKeys("tanaka@gmail.com");

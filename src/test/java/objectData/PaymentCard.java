@@ -1,7 +1,8 @@
 package objectData;
 
 public class PaymentCard {
-    String cardName,cardNumber,month,year;
+    String cardName, cardNumber;
+    int expiredDate, CVV;
 
     public String getCardName() {
         return cardName;
@@ -11,19 +12,18 @@ public class PaymentCard {
         return cardNumber;
     }
 
-    public String getMonth() {
-        return month;
+    public int getExpiredDate() {
+        return expiredDate;
     }
 
-    public String getYear() {
-        return year;
+    public int getCVV(){
+        return CVV;
     }
-
-    public PaymentCard(String cardName, String cardNumber, String month, String year) {
+    public PaymentCard(String cardName, String cardNumber, int expiredDate, int CVV) {
         this.cardName = cardName;
         this.cardNumber = cardNumber;
-        this.month = month;
-        this.year = year;
+        this.expiredDate = expiredDate;
+        this.CVV = CVV;
     }
 
 
