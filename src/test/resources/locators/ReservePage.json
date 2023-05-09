@@ -109,7 +109,39 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=",
-      "IOS:id=OK"
+      "IOS:id=btnOk"
+    ]
+  },
+  "txtNameCard": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtNameCard"
+    ]
+  },
+  "txtCardNumber": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCardNumber"
+    ]
+  },
+  "txtExpiredDate": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtExpiredDate"
+    ]
+  },
+  "txtCVV": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCVV"
     ]
   }
 }

@@ -71,8 +71,7 @@ public class ReservedListPageTest extends TestBaseIOS{
         Logger.info("前提条件: 1. 有効なアカウントでログイン\n         " +
                 "2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
         loginPage.login(User.TANAKA);
-        reservePage.searchData(DateHelper.plusDaysInDate(TestConstants.TODAY, 2), DateHelper.plusDaysInDate(TestConstants.TODAY, 4));
-        reservePage.selectRoomByName("202");
+        reservePage.showReservedList();
         System.out.println(reservePage.getDetailRoomLabel());
 //        reservePage.gotoPayment();
 //        reservePage.prePayemnt(TestConstants.TC19_PAYMENT_DATA);
