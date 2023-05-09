@@ -55,8 +55,6 @@ public class TestConstants {
 	public static final String PT2_TC03_SELECT_ROOM_1 = "301";
 	public static final String PT2_TC03_CHECK_IN_DAY_1 = "2023/08/23";
 	public static final String PT2_TC03_CHECK_OUT_DAY_1 = "2023/08/25";
-	public static final PaymentCard PT2_TCO3_DATA_PAYMENT = new PaymentCard("test","5555555555554444","","");
-
 	//pattern3
 	public static final String PT3_TC02_DAY_FOR_SEARCH = "2023/08/15";
 	public static final String PT3_TC02_CHECK_IN_DAY = "2023/08/15";
@@ -65,14 +63,5 @@ public class TestConstants {
 	public static final String PT3_TC03_SELECT_ROOM_1 = "201";
 	public static final String PT3_TC03_CHECK_IN_DAY_1 = "2023/08/27";
 	public static final String PT3_TC03_CHECK_OUT_DAY_1 = "2023/08/29";
-	public static final PaymentCard PT3_TCO3_DATA_PAYMENT = new PaymentCard("test","3530111333300000","","");
-
-	public static final PaymentCard TCO7_DATA_PAYMENT = new PaymentCard("test","4111111111111111","","");
-	public static final PaymentCard TCO8_DATA_PAYMENT = new PaymentCard("test","4111111111111111","","");
-	public static final PaymentCard TCO8_DATA_ERROR_1_PAYMENT = new PaymentCard("test","41111111111111112222","","");
-	public static final PaymentCard TCO8_DATA_ERROR_2_PAYMENT = new PaymentCard("test","411111111111111","","");
-	public static final PaymentCard TCO8_DATA_ERROR_3_PAYMENT = new PaymentCard("test","","","");
-	public static final PaymentCard TCO9_DATA_PAYMENT = new PaymentCard("test","4111111111111111","","");
-	public static final PaymentCard TCO6_DATA_PAYMENT = new PaymentCard("test test test test test test test","411111111111111","","");
-	public static final PaymentCard TCO6_DATA_BLANK_PAYMENT = new PaymentCard("","","","");
+	public static final PaymentCard TC19_PAYMENT_DATA = new PaymentCard("NGUYEN VAN A", "1111222233334444", 426, 952);
 }
