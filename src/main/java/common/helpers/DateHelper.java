@@ -31,7 +31,11 @@ public class DateHelper {
         LocalDate endDate = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return Math.abs(ChronoUnit.DAYS.between(startDate,endDate));
     }
-    public static String dateToString(Date date){
+
+    public static Date plusDaysInDate(Date date, int days) {
+        return new Date(date.getTime() + (days * (1000 * 24 * 60 * 60)));
+    }
+    public static String dateToString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         return sdf.format(date);
     }

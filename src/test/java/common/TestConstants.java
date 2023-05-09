@@ -2,6 +2,8 @@ package common;
 
 import objectData.PaymentCard;
 
+import java.util.Date;
+
 public class TestConstants {
 	public static final String CSV_PATH = System.getProperty("user.dir") + "/src/test/resources/data/GoogleKeyword.csv".replace("/", System.getProperty("file.separator"));
 	public static final String TEST_DATA_PATH = System.getProperty("user.dir") + "/src/test/resources/data/".replace("/", System.getProperty("file.separator"));
@@ -19,6 +21,8 @@ public class TestConstants {
 
 	public static final String ERRORMESSAGE = "有効なアカウントを入力してください";
 	public static final String LBLERRORMESSAGE = "アカウントまたはパスワードが無効です";
+
+	public static final Date TODAY = new Date();
 
 	public static final String TC14PASSWORD = "vision2022";
 	public static final String TC14PASSWORDENCRYPTION = "••••••••••";

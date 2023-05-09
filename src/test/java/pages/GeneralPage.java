@@ -58,7 +58,7 @@ public class GeneralPage {
     }
 
     public void selectDate(Date date){
-        datePicker.waitForVisibility(Constants.SHORT_TIME);
+        //datePicker.waitForVisibility(Constants.SHORT_TIME);
         btnShowYearPicker.waitForVisibility(Constants.SHORT_TIME);
         btnShowYearPicker.click();
         List<WebElement> values = DriverUtils.findElements(By.xpath("//XCUIElementTypePickerWheel"));
