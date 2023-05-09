@@ -1,16 +1,19 @@
 package pages;
 
 import common.Constants;
+import common.helpers.DateHelper;
 import common.helpers.LocatorFactory;
 import drivers.DriverManager;
 import elements.*;
+import elements.Button;
+import elements.Label;
+import objectData.PaymentCard;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import common.helpers.DateHelper;
+
 import java.util.Date;
 import java.util.List;
-
-import static common.helpers.Utils.sleep;
 
 public class ReservePage extends GeneralPage {
 
@@ -21,18 +24,23 @@ public class ReservePage extends GeneralPage {
     protected Label lblTotal = new Label(LocatorFactory.getLocator("lblTotal"));
     protected Table tblResult = new Table(LocatorFactory.getLocator("tblResult"));
     protected Button btnGotoPayment = new Button(LocatorFactory.getLocator("btnGotoPayment"));
+    protected Label optPrepay = new Label(LocatorFactory.getLocator("optPrepay"));
+    protected Label optPostPaid = new Label(LocatorFactory.getLocator("optPostPaid"));
     protected Button btnOk = new Button(LocatorFactory.getLocator("btnOk"));
     protected Button btnCancel = new Button(LocatorFactory.getLocator("btnCancel"));
     protected Button btnAlertOk = new Button(LocatorFactory.getLocator("btnAlertOk"));
     protected Button btnPayment = new Button(LocatorFactory.getLocator("btnPayment"));
+    protected TextBox txtNameCard = new TextBox(LocatorFactory.getLocator("txtNameCard"));
+    protected TextBox txtCardNumber = new TextBox(LocatorFactory.getLocator("txtCardNumber"));
+    protected TextBox txtExpiredDate = new TextBox(LocatorFactory.getLocator("txtExpiredDate"));
+    protected TextBox txtCVV = new TextBox(LocatorFactory.getLocator("txtCVV"));
+    protected Label lbl201 = new Label(LocatorFactory.getLocator("lbl201"));
 
-    public void searchData(){
-        Date checkin = new Date("2023/05/28");
+    public void searchData(Date checkin, Date checkout){
         txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
         txtCheckIn.click();
         selectDate(checkin);
         btnCloseDatePicker.click();
-        Date checkout = new Date("2023/05/30");
         txtCheckout.waitForVisibility(Constants.SHORT_TIME);
         txtCheckout.click();
         selectDate(checkout);
@@ -40,9 +48,6 @@ public class ReservePage extends GeneralPage {
         rbAll.click();
         btnSearch.click();
         tblResult.waitForVisibility(Constants.SHORT_TIME);
-        List<WebElement> list =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
-        System.out.println(DateHelper.distanceBetweenTwoDays(checkout, checkin));
-        System.out.println(list.size());
     }
 
     public void pickCheckInDate(Date checkInDate){
@@ -102,7 +107,7 @@ public class ReservePage extends GeneralPage {
     public void payment(){
         btnPayment.click();
     }
-    public void agreePayment(){
+    public void confirmPayment(){
         btnOk.waitForVisibility(Constants.SHORT_TIME);
         btnOk.click();
     }
@@ -110,7 +115,7 @@ public class ReservePage extends GeneralPage {
         btnCancel.waitForVisibility(Constants.SHORT_TIME);
         btnCancel.click();
     }
-    public void closeAlert(){
+    public void closeDialog(){
         btnAlertOk.waitForVisibility(Constants.SHORT_TIME);
         btnAlertOk.click();
     }
@@ -126,5 +131,31 @@ public class ReservePage extends GeneralPage {
     public String getLblHeader(){
         return lblHeader.getText();
     }
+
+    public void postPaidPayment() {
+        optPostPaid.waitForVisibility(Constants.SHORT_TIME);
+        optPostPaid.click();
+    }
+
+    public void prePayemnt(PaymentCard paymentCard){
+        optPrepay.waitForVisibility(Constants.SHORT_TIME);
+        optPrepay.click();
+        txtExpiredDate.waitForVisibility(Constants.SHORT_TIME);
+        txtExpiredDate.sendKeys(String.valueOf(paymentCard.getExpiredDate()));
+        txtNameCard.waitForVisibility(Constants.SHORT_TIME);
+        txtNameCard.sendKeys(paymentCard.getCardName());
+        txtCardNumber.waitForVisibility(Constants.SHORT_TIME);
+        txtCardNumber.sendKeys(paymentCard.getCardNumber());
+        txtCVV.waitForVisibility(Constants.SHORT_TIME);
+        txtCVV.sendKeys(String.valueOf(paymentCard.getCVV()));
+        txtCVV.sendKeys(Keys.RETURN);
+    }
+
+    public String getDetailRoomLabel() {
+        lbl201.waitForVisibility(Constants.SHORT_TIME);
+        return lbl201.getText();
+    }
+
+
 
 }

@@ -1,8 +1,8 @@
 package tests;
 
-import common.SearchType;
 import common.TestConstants;
 import common.User;
+import common.helpers.DateHelper;
 import common.helpers.Logger;
 import io.qameta.allure.Description;
 import org.testng.Assert;
@@ -10,9 +10,6 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ReservePage;
 import pages.ReservedListPage;
-
-import java.time.LocalDate;
-import java.util.Date;
 
 public class ReservedListPageTest extends TestBaseIOS{
 
@@ -73,7 +70,14 @@ public class ReservedListPageTest extends TestBaseIOS{
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン\n         " +
                 "2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
-        loginPage.login(User.HONDA);
-//        reservePage.
+        loginPage.login(User.TANAKA);
+        reservePage.searchData(DateHelper.plusDaysInDate(TestConstants.TODAY, 2), DateHelper.plusDaysInDate(TestConstants.TODAY, 4));
+        reservePage.selectRoomByName("202");
+        System.out.println(reservePage.getDetailRoomLabel());
+//        reservePage.gotoPayment();
+//        reservePage.prePayemnt(TestConstants.TC19_PAYMENT_DATA);
+//        reservePage.payment();
+//        reservePage.confirmPayment();
+//        reservePage.closeDialog();
     }
 }
