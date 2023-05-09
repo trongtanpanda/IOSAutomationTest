@@ -41,11 +41,33 @@ public class ReservePage extends GeneralPage {
         btnSearch.click();
         tblResult.waitForVisibility(Constants.SHORT_TIME);
         List<WebElement> list =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
-
-
         System.out.println(DateHelper.distanceBetweenTwoDays(checkout, checkin));
         System.out.println(list.size());
     }
+
+    public void pickCheckInDate(Date checkInDate){
+        txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
+        txtCheckIn.click();
+        selectDate(checkInDate);
+        btnCloseDatePicker.click();
+    }
+
+    public void pickCheckoutDate(Date checkoutDate){
+        txtCheckout.waitForVisibility(Constants.SHORT_TIME);
+        txtCheckout.click();
+        selectDate(checkoutDate);
+        btnCloseDatePicker.click();
+    }
+
+    public boolean isCheckInDisplayCorrectly(Date checkinDate){
+        String txtCheckInValue = txtCheckIn.getText();
+        return txtCheckInValue.equals(DateHelper.dateToString(checkinDate));
+    }
+    public boolean isCheckoutDisplayCorrectly(Date checkoutDate){
+        String txtCheckOutValue = txtCheckout.getText();
+        return txtCheckOutValue.equals(DateHelper.dateToString(checkoutDate));
+    }
+
     public void payment(){
         btnPayment.click();
     }

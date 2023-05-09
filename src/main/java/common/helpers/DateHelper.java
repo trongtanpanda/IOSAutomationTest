@@ -1,6 +1,7 @@
 package common.helpers;
 
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
@@ -29,5 +30,9 @@ public class DateHelper {
         LocalDate startDate = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate endDate = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return Math.abs(ChronoUnit.DAYS.between(startDate,endDate));
+    }
+    public static String dateToString(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return sdf.format(date);
     }
 }
