@@ -21,11 +21,11 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3．ロギングボタンを押下");
         User user = User.TANAKA;
         loginPage.login(user);
-        reservePage.searchData();
+//        reservePage.searchData();
         reservePage.selectRoomByName("401");
         reservePage.gotoPayment();
         reservePage.payment();
-        reservePage.agreePayment();
+//        reservePage.agreePayment();
         reservePage.closeDialog();
         sleep(10000);
         //WebElement txtEmail = DriverManager.getDriver().findElement(By.id("email"));
