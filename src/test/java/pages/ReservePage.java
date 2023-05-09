@@ -34,7 +34,6 @@ public class ReservePage extends GeneralPage {
     protected TextBox txtCardNumber = new TextBox(LocatorFactory.getLocator("txtCardNumber"));
     protected TextBox txtExpiredDate = new TextBox(LocatorFactory.getLocator("txtExpiredDate"));
     protected TextBox txtCVV = new TextBox(LocatorFactory.getLocator("txtCVV"));
-    protected Label lbl201 = new Label(LocatorFactory.getLocator("lbl201"));
 
     public void searchData(Date checkin, Date checkout){
         txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
@@ -152,8 +151,8 @@ public class ReservePage extends GeneralPage {
     }
 
     public String getDetailRoomLabel() {
-        lbl201.waitForVisibility(Constants.SHORT_TIME);
-        return lbl201.getText();
+
+        return "lbl201.getText()";
     }
 
 
