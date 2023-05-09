@@ -1,6 +1,7 @@
 package pages;
 
 import common.Constants;
+import common.helpers.DateHelper;
 import common.helpers.LocatorFactory;
 import drivers.DriverManager;
 import elements.*;
@@ -12,6 +13,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.Date;
+import java.util.List;
 
 public class ReservePage extends GeneralPage {
 
@@ -46,6 +48,61 @@ public class ReservePage extends GeneralPage {
         rbAll.click();
         btnSearch.click();
         tblResult.waitForVisibility(Constants.SHORT_TIME);
+    }
+
+    public void pickCheckInDate(Date checkInDate){
+        txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
+        txtCheckIn.click();
+        selectDate(checkInDate);
+        btnCloseDatePicker.click();
+    }
+
+    public void pickCheckoutDate(Date checkoutDate){
+        txtCheckout.waitForVisibility(Constants.SHORT_TIME);
+        txtCheckout.click();
+        selectDate(checkoutDate);
+        btnCloseDatePicker.click();
+    }
+
+    public void search() {
+        btnSearch.waitForVisibility(Constants.SHORT_TIME);
+        btnSearch.click();
+    }
+    public void selectSingle(){
+        rbSingle.waitForVisibility(Constants.SHORT_TIME);
+        rbSingle.click();
+    }
+    public void selectTwin(){
+        rbTwin.waitForVisibility(Constants.SHORT_TIME);
+        rbTwin.click();
+    }
+    public boolean isCheckInDisplayCorrectly(Date checkinDate){
+        String txtCheckInValue = txtCheckIn.getText();
+        return txtCheckInValue.equals(DateHelper.dateToString(checkinDate));
+    }
+    public boolean isCheckoutDisplayCorrectly(Date checkoutDate){
+        String txtCheckOutValue = txtCheckout.getText();
+        return txtCheckOutValue.equals(DateHelper.dateToString(checkoutDate));
+    }
+
+    public boolean isCheckoutShouldNotEqualOrLessThanCheckInDate(Date checkinDate){
+        pickCheckoutDate(checkinDate);
+        String txtCheckOutValue = txtCheckout.getText();
+        Date expectedCheckoutDate = DateHelper.plusDaysInDate(checkinDate, 1);
+        return txtCheckOutValue.equals(DateHelper.dateToString(expectedCheckoutDate));
+    }
+    public boolean isAllDataDisplayed(){
+        tblResult.waitForVisibility(Constants.SHORT_TIME);
+        List<WebElement> list =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
+        System.out.println(list.size());
+        return list.size() == 14;
+    }
+
+    public boolean isListRoomByTypeDisplayCorrectly(String type){
+        tblResult.waitForVisibility(Constants.SHORT_TIME);
+        List<WebElement> listSingleRoom =  tblResult.getChildElements(By.xpath("//XCUIElementTypeStaticText[@name='  タイプ: "+ type +"']"));
+        List<WebElement> allResult =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
+        return allResult.size() == listSingleRoom.size();
     }
     public void payment(){
         btnPayment.click();

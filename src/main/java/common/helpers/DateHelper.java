@@ -1,11 +1,13 @@
 package common.helpers;
 
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class DateHelper {
     public static int monthToNumber(String month) {
@@ -32,5 +34,9 @@ public class DateHelper {
 
     public static Date plusDaysInDate(Date date, int days) {
         return new Date(date.getTime() + (days * (1000 * 24 * 60 * 60)));
+    }
+    public static String dateToString(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return sdf.format(date);
     }
 }
