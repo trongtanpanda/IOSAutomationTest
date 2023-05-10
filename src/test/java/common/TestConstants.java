@@ -64,4 +64,9 @@ public class TestConstants {
 	public static final String PT3_TC03_CHECK_IN_DAY_1 = "2023/08/27";
 	public static final String PT3_TC03_CHECK_OUT_DAY_1 = "2023/08/29";
 	public static final PaymentCard TC19_PAYMENT_DATA = new PaymentCard("NGUYEN VAN A", "1111222233334444", 426, 952);
+	public static final String PREPAYMENT = "元払い";
+	public static final String POSTPAID = "後払い";
+
+	public static final Room ROOM201 = new Room("201", "シングル", "階: 2", "記述: ここは201号室です", 15000);
+	public static final Room ROOM203 = new Room("203", "シングル", 13000);
 }

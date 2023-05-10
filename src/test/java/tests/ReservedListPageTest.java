@@ -66,17 +66,29 @@ public class ReservedListPageTest extends TestBaseIOS{
     @Test
     @Description()
     public void TC18_VerifyThatTheReservedRoomInformationAndTheRoomInformationDisplayedMatch(){
+        System.out.println(TestConstants.TODAY);
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
-        Logger.info("前提条件: 1. 有効なアカウントでログイン\n         " +
-                "2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
-        loginPage.login(User.TANAKA);
+        ReservedListPage reservedListPage = new ReservedListPage();
+        Logger.info("前提条件:1. 有効なアカウントでログイン\n" +
+                            "2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
+        loginPage.login(User.YAMAHA);
+        reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
+        reservePage.selectRoomByName(TestConstants.ROOM203.getRoomName());
+        reservePage.gotoPayment();
+        reservePage.postPaidPayment();
+        reservePage.payment();
+        reservePage.confirmPayment();
+        reservePage.closeDialog();
         reservePage.showReservedList();
-        System.out.println(reservePage.getDetailRoomLabel());
-//        reservePage.gotoPayment();
-//        reservePage.prePayemnt(TestConstants.TC19_PAYMENT_DATA);
-//        reservePage.payment();
-//        reservePage.confirmPayment();
-//        reservePage.closeDialog();
+        Assert.assertTrue(reservedListPage.isRoomExist(TestConstants.ROOM203));
+        Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
+        Assert.assertTrue(reservedListPage.isTotalMatch(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1))));
+        Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
+        Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1)));
     }
+
+//    @Test
+//    @Description()
+//    public void TC19_
 }
