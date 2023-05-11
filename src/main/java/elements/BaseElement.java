@@ -131,6 +131,11 @@ public class BaseElement {
     public List<WebElement> getChildElements(By by) {
         return getElement().findElements(by);
     }
+
+
+    public WebElement getChildElement(By by) {
+        return getElement().findElement(by);
+    }
     /**
      * This method helps to scroll to the element until the element is displayed.
      * 表示されるまでスクロールします。

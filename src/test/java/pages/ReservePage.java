@@ -1,9 +1,12 @@
 package pages;
 
 import common.Constants;
+import common.Room;
+import common.helpers.CurrencyHelper;
 import common.helpers.DateHelper;
 import common.helpers.LocatorFactory;
 import drivers.DriverManager;
+import drivers.DriverUtils;
 import elements.*;
 import elements.Button;
 import elements.Label;
@@ -34,6 +37,13 @@ public class ReservePage extends GeneralPage {
     protected TextBox txtCardNumber = new TextBox(LocatorFactory.getLocator("txtCardNumber"));
     protected TextBox txtExpiredDate = new TextBox(LocatorFactory.getLocator("txtExpiredDate"));
     protected TextBox txtCVV = new TextBox(LocatorFactory.getLocator("txtCVV"));
+    protected Label lblDetailRoomName = new Label(LocatorFactory.getLocator("lblDetailRoomName"));
+    protected Label lblDetailFloor = new Label(LocatorFactory.getLocator("lblDetailFloor"));
+    protected Label lblDetailPrice = new Label(LocatorFactory.getLocator("lblDetailPrice"));
+    protected Label lblDetailRoomType = new Label(LocatorFactory.getLocator("lblDetailRoomType"));
+    protected Label lblDetailDescription = new Label(LocatorFactory.getLocator("lblDetailDescription"));
+    protected Button btnCloseRoomDetail = new Button(LocatorFactory.getLocator("btnCloseRoomDetail"));
+    protected Alert alError = new Alert(LocatorFactory.getLocator("alError"));
 
     public void searchData(Date checkin, Date checkout){
         txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
@@ -75,6 +85,17 @@ public class ReservePage extends GeneralPage {
         rbTwin.waitForVisibility(Constants.SHORT_TIME);
         rbTwin.click();
     }
+    public void selectAll(){
+        rbAll.waitForVisibility(Constants.SHORT_TIME);
+        rbAll.click();
+    }
+
+    public void viewRoomDetailByRoomName(String roomName){
+        tblResult.waitForVisibility(Constants.SHORT_TIME);
+        WebElement room =  tblResult.getChildElement(By.xpath("//XCUIElementTypeButton[@name='"+ roomName +"']/parent::XCUIElementTypeOther"));
+        room.click();
+    }
+
     public boolean isCheckInDisplayCorrectly(Date checkinDate){
         String txtCheckInValue = txtCheckIn.getText();
         return txtCheckInValue.equals(DateHelper.dateToString(checkinDate));
@@ -93,7 +114,6 @@ public class ReservePage extends GeneralPage {
     public boolean isAllDataDisplayed(){
         tblResult.waitForVisibility(Constants.SHORT_TIME);
         List<WebElement> list =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
-        System.out.println(list.size());
         return list.size() == 14;
     }
 
@@ -102,6 +122,47 @@ public class ReservePage extends GeneralPage {
         List<WebElement> listSingleRoom =  tblResult.getChildElements(By.xpath("//XCUIElementTypeStaticText[@name='  タイプ: "+ type +"']"));
         List<WebElement> allResult =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
         return allResult.size() == listSingleRoom.size();
+    }
+
+    public boolean isRoomDetailDisplayCorrectly(Room room){
+        String actualRoomName = lblDetailRoomName.getText();
+        String actualRoomType = lblDetailRoomType.getText();
+        String actualRoomPrice = lblDetailPrice.getText();
+        String actualRoomFloor = lblDetailFloor.getText();
+        String actualRoomDescription = lblDetailDescription.getText();
+        String expectedRoomName = "部屋: " + room.getRoomName();
+        String expectedRoomType = "タイプ: " + room.getRoomType();
+        String expectedRoomPrice = "価格: ¥" + CurrencyHelper.currencyConvert(room.getPrice());
+        String expectedRoomFloor = "階: " + room.getFloor();
+        String expectedRoomDescription = "記述: " + room.getDescription();
+        Boolean isInfoCorrectly = expectedRoomType.equals(actualRoomType) && expectedRoomName.equals(actualRoomName) && expectedRoomPrice.equals(actualRoomPrice)
+                && expectedRoomFloor.equals(actualRoomFloor) && expectedRoomDescription.equals(actualRoomDescription);
+        Boolean isDisplay = lblDetailRoomName.isDisplayed() && lblDetailRoomType.isDisplayed() && lblDetailDescription.isDisplayed()
+                && lblDetailFloor.isDisplayed() && lblDetailPrice.isDisplayed();
+        return isDisplay && isInfoCorrectly;
+    }
+
+    public boolean isErrorPopupDisplayCorrectly(){
+        return alError.isDisplayed();
+    }
+
+    public boolean isTotalDisplayCorrectly(Integer total){
+        String actualValue = lblTotal.getText();
+        String expectedValue = "合計: ¥" + CurrencyHelper.currencyConvert(total);
+        System.out.println(actualValue);
+        System.out.println(expectedValue);
+        return expectedValue.equals(actualValue) && lblTotal.isDisplayed();
+    }
+    public boolean isCheckedByRoomName(String roomName){
+        tblResult.waitForVisibility(Constants.SHORT_TIME);
+        WebElement allResult =  tblResult.getChildElement(By.xpath("//XCUIElementTypeImage[@name='ckb-"+ roomName +"']"));
+        String checkboxLabel = allResult.getAttribute("label");
+        return checkboxLabel.equals("Selected");
+    }
+    public boolean isPaymentPage(){
+        String actualHeader = lblHeader.getText();
+        String expectedHeader = "支払い";
+        return expectedHeader.equals(actualHeader) && lblHeader.isDisplayed();
     }
     public void payment(){
         btnPayment.click();
@@ -119,7 +180,9 @@ public class ReservePage extends GeneralPage {
         btnAlertOk.click();
     }
     public void selectRoomByName(String name){
-        WebElement checkBox = DriverManager.getDriver().findElement(By.id(name));
+        WebElement checkBox = DriverManager.getDriver().findElement(By.id("ckb-"+name));
+        WebElement table = DriverManager.getDriver().findElement(By.id("searchList"));
+        DriverUtils.scrollDownToElement(table,checkBox);
         checkBox.click();
 
     }
