@@ -114,7 +114,7 @@ public class ReservedListPageTest extends TestBaseIOS{
         Logger.info("5. チェックアウト日フィールドで翌日を選択する");
         Logger.info("6. 探すアイコンをクリックする");
         reservedListPage.searchReservedList(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Assert.assertTrue(reservedListPage.isRoomExist(TestConstants.ROOM201));
+        Assert.assertTrue(reservedListPage.isRoomExist(Room.R201));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
 //        Assert.assertTrue(reservedListPage.isTotalMatch(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1))));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
