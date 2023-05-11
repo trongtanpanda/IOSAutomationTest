@@ -67,6 +67,4 @@ public class TestConstants {
 	public static final String PREPAYMENT = "元払い";
 	public static final String POSTPAID = "後払い";
 
-	public static final Room ROOM201 = new Room("201", "シングル", "階: 2", "記述: ここは201号室です", 15000);
-	public static final Room ROOM203 = new Room("203", "シングル", 13000);
 }

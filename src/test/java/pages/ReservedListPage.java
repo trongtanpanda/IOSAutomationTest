@@ -77,7 +77,7 @@ public class ReservedListPage extends GeneralPage {
 
     public boolean isRoomExist(Room room){
         lblRoom.setDynamicValue(room.getRoomName());
-        lblTypeRoom.setDynamicValue(room.getTypeRoom());
+        lblTypeRoom.setDynamicValue(room.getRoomType());
         lblPrice.setDynamicValue(room.getPrice());
         return lblRoom.isDisplayed() && lblTypeRoom.isDisplayed() && lblPrice.isDisplayed();
     }

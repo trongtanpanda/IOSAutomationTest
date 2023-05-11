@@ -1,5 +1,6 @@
 package tests;
 
+import common.Room;
 import common.TestConstants;
 import common.User;
 import common.helpers.DateHelper;
@@ -74,14 +75,14 @@ public class ReservedListPageTest extends TestBaseIOS{
                             "2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
         loginPage.login(User.YAMAHA);
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        reservePage.selectRoomByName(TestConstants.ROOM203.getRoomName());
+        reservePage.selectRoomByName(Room.R203.getRoomName());
         reservePage.gotoPayment();
         reservePage.postPaidPayment();
         reservePage.payment();
         reservePage.confirmPayment();
         reservePage.closeDialog();
         reservePage.showReservedList();
-        Assert.assertTrue(reservedListPage.isRoomExist(TestConstants.ROOM203));
+        Assert.assertTrue(reservedListPage.isRoomExist(Room.R203));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
         Assert.assertTrue(reservedListPage.isTotalMatch(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1))));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
