@@ -1,5 +1,6 @@
 package tests;
 
+import common.SearchType;
 import common.TestConstants;
 import common.User;
 import common.helpers.DateHelper;
@@ -66,12 +67,11 @@ public class ReservedListPageTest extends TestBaseIOS{
     @Test
     @Description()
     public void TC18_VerifyThatTheReservedRoomInformationAndTheRoomInformationDisplayedMatch(){
-        System.out.println(TestConstants.TODAY);
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
-        Logger.info("前提条件:1. 有効なアカウントでログイン\n" +
-                            "2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
+        Logger.info("前提条件:1. 有効なアカウントでログイン");
+        Logger.info("2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
         loginPage.login(User.YAMAHA);
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         reservePage.selectRoomByName(TestConstants.ROOM203.getRoomName());
@@ -88,7 +88,35 @@ public class ReservedListPageTest extends TestBaseIOS{
         Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1)));
     }
 
-//    @Test
-//    @Description()
-//    public void TC19_
+    @Test
+    @Description()
+    public void TC19() {
+        LoginPage loginPage = new LoginPage();
+        ReservePage reservePage = new ReservePage();
+        ReservedListPage reservedListPage = new ReservedListPage();
+        Logger.info("有効なアカウントでログイン");
+        Logger.info("本日に部屋を予約する（チェックアウト日:翌日, ２０１号室を選択する, 支払方法:　後払い)");
+        loginPage.login(User.HONDA);
+//        reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
+//        reservePage.selectRoomByName(TestConstants.ROOM201.getRoomName());
+//        reservePage.gotoPayment();
+//        reservePage.postPaidPayment();
+//        reservePage.payment();
+//        reservePage.confirmPayment();
+//        reservePage.closeDialog();
+        Logger.info("1. メニューをクリックする");
+        Logger.info("2. 部屋を予約したリストを選択する");
+        reservePage.showReservedList();
+        Logger.info("3. 検索タイプで検索範囲を選択する");
+        reservedListPage.changeSearchType(SearchType.RANGE);
+        Logger.info("4. チェックイン日フィールドで本日を選択する");
+        Logger.info("5. チェックアウト日フィールドで翌日を選択する");
+        Logger.info("6. 探すアイコンをクリックする");
+        reservedListPage.searchReservedList(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
+        Assert.assertTrue(reservedListPage.isRoomExist(TestConstants.ROOM201));
+        Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
+//        Assert.assertTrue(reservedListPage.isTotalMatch(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1))));
+        Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
+        Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1)));
+    }
 }

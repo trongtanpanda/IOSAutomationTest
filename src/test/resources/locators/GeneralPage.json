@@ -20,7 +20,7 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=",
-      "IOS:id=Search"
+      "IOS:id=btnSearch"
     ]
   },
   "btnMenu": {
