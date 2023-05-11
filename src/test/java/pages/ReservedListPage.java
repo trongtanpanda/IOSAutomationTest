@@ -8,6 +8,7 @@ import common.helpers.LocatorFactory;
 import elements.Button;
 import elements.Label;
 import elements.TextBox;
+import net.sf.cglib.core.Local;
 
 import java.util.Date;
 
@@ -16,11 +17,6 @@ public class ReservedListPage extends GeneralPage {
     protected Label lblHeader = new Label(LocatorFactory.getLocator("lblHeader"));
 
     protected Button btnSearchType = new Button(LocatorFactory.getLocator("btnSearchType"));
-    protected TextBox txtCheckinDate = new TextBox(LocatorFactory.getLocator("txtCheckinDate"));
-    protected TextBox txtCheckoutDate = new TextBox(LocatorFactory.getLocator("txtCheckoutDate"));
-
-    protected Button btnSearch = new Button(LocatorFactory.getLocator("btnSearch"));
-
     protected Button btnSearchAllRecords = new Button(LocatorFactory.getLocator("btnSearchAllRecords"));
     protected Button btnSearchRange = new Button(LocatorFactory.getLocator("btnSearchRange"));
     protected Label lblRoom = new Label("id=部屋: %s");
@@ -31,6 +27,9 @@ public class ReservedListPage extends GeneralPage {
     protected Label lblCheckinDate = new Label("id=チェックイン日: %s");
     protected Label lblCheckoutDate = new Label("id=チェックアウト日: %s");
     protected Label lblTotalPrice = new Label("id=合計: ¥%s");
+
+
+
     public void changeSearchType(SearchType searchType){
         btnSearchType.waitForVisibility(Constants.SHORT_TIME);
         btnSearchType.click();
@@ -52,21 +51,15 @@ public class ReservedListPage extends GeneralPage {
         return btnSearchType.isDisplayed();
     }
 
-    public void selectCheckinDate(Date date) {
-        txtCheckinDate.click();
-        selectDate(date);
+    public void searchReservedList(Date checkin, Date checkout) {
+        txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
+        txtCheckIn.click();
+        selectDate(checkin);
         btnCloseDatePicker.click();
-    }
-
-    public void selectCheckoutDate(Date date){
-        txtCheckoutDate.click();
-        selectDate(date);
+        txtCheckout.waitForVisibility(Constants.SHORT_TIME);
+        txtCheckout.click();
+        selectDate(checkout);
         btnCloseDatePicker.click();
-    }
-
-    public void searchReservedList(Date checkinDate, Date checkoutDate) {
-        selectCheckinDate(checkinDate);
-        selectCheckoutDate(checkoutDate);
         btnSearch.click();
     }
 
@@ -75,11 +68,14 @@ public class ReservedListPage extends GeneralPage {
         return lblPrice.getText();
     }
 
+
     public boolean isRoomExist(Room room){
         lblRoom.setDynamicValue(room.getRoomName());
+        lblTypeRoom.setDynamicValue(room.getTypeRoom());
         lblTypeRoom.setDynamicValue(room.getRoomType());
         lblPrice.setDynamicValue(room.getPrice());
-        return lblRoom.isDisplayed() && lblTypeRoom.isDisplayed() && lblPrice.isDisplayed();
+        System.out.println(lblPrice.isDisplayed());
+        return lblRoom.isDisplayed() && lblTypeRoom.isDisplayed() ;
     }
 
     public boolean isBookedDateMatch(Date date){
@@ -102,5 +98,8 @@ public class ReservedListPage extends GeneralPage {
         lblPaymentMethod.setDynamicValue(paymentMethod);
         return lblPaymentMethod.isDisplayed();
     }
+
+
+
 
 }

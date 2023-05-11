@@ -7,7 +7,6 @@
       "IOS:id=lblHeader"
     ]
   },
-
   "btnSearchType": {
     "locator": [
       "Browser:xpath=",
@@ -16,7 +15,6 @@
       "IOS:xpath=//XCUIElementTypeButton[@name=\"btnSearchType\"]"
     ]
   },
-
   "btnSearchAllRecords": {
     "locator": [
       "Browser:xpath=",
@@ -25,44 +23,12 @@
       "IOS:xpath=//XCUIElementTypeButton[@name=\"全記録\"]\n"
     ]
   },
-
   "btnSearchRange": {
     "locator": [
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
       "IOS:xpath=//XCUIElementTypeButton[@name=\"検索範囲\"]"
-    ]
-  },
-
-
-
-
-
-  "txtCheckinDate": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
-      "IOS:id=txtCheckinDate"
-    ]
-  },
-
-  "txtCheckoutDate": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
-      "IOS:id=txtCheckoutDate"
-    ]
-  },
-
-  "btnSearch": {
-    "locator": [
-      "Browser:xpath=",
-      "AppBrowser:xpath=",
-      "Android:id=com.agest.bookingapp:id/txtErrorMessenger",
-      "IOS:id=btnSearch"
     ]
   }
 }
