@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import elements.BaseElement;
+import elements.Table;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -285,6 +288,30 @@ public class DriverUtils {
 
     }
 
+    public static void scrollDownToElement(WebElement listView, WebElement element){
+//        if(element.getAttribute("visible").equals("false")){
+            TouchAction action = new TouchAction(DriverUtils.getIOSDriver());
+            action.longPress(LongPressOptions.longPressOptions()
+                            .withElement(ElementOption.element(listView))
+                            .withDuration(Duration.ofMillis(500)))
+                    .moveTo(ElementOption.element(element))
+                    .release()
+                    .perform();
+//        }
+
+
+    }
+
+    private static void scrollToListElement(AppiumDriver driver, Table listView, WebElement element) {
+
+    }
+
+
+
+    private static boolean isElementVisible(WebElement element) {
+        System.out.println(element.getAttribute("visible").equals("true"));
+        return element.getAttribute("visible").equals("true");
+    }
     @SuppressWarnings("rawtypes")
 	public static void swipe(int startX, int startY, int endX, int endY, int millisWait) {
         new TouchAction((PerformsTouchActions) getDriver()).press(PointOption.point(startX, startY))
