@@ -143,5 +143,61 @@
       "Android:id=",
       "IOS:id=txtCVV"
     ]
+  },
+  "lblDetailRoomName": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=detail-name"
+    ]
+  },
+  "lblDetailFloor": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=detail-floor"
+    ]
+  },
+  "lblDetailPrice": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=detail-price"
+    ]
+  },
+  "lblDetailRoomType": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=detail-type"
+    ]
+  },
+  "lblDetailDescription": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=detail-description"
+    ]
+  },
+  "btnCloseRoomDetail": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=close-detail"
+    ]
+  },
+  "alError": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:xpath=//XCUIElementTypeAlert"
+    ]
   }
 }
