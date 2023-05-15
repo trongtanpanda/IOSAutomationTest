@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ReservePage;
+import pages.ReservedListPage;
 
 import java.util.Date;
 
@@ -369,7 +370,7 @@ public class ReservePageTest extends TestBaseIOS {
     public void TC14() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
-
+        ReservedListPage rs = new ReservedListPage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
         User user = User.TANAKA;
@@ -387,19 +388,25 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Room room1 = Room.R201;
-        Room room2 = Room.R301;
+        Room room1 = Room.R401;
+        Room room2 = Room.R402;
         Logger.info("4. 部室名「201」と「301」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
-
+        sleep(20000);
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         int total = room1.getPrice() + room2.getPrice();
         Logger.verify("合計が0円から27000円に変更されこと,「201」と「301」をチェックすること");
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
+        Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room1));
+        Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room2));
 
-
+        Logger.info("６.「戻る」ボタンを押下する");
+        reservePage.backToReservePage();
+        Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
+        Assert.assertTrue(reservePage.isCheckedByRoomName(room1.getRoomName()));
+        Assert.assertTrue(reservePage.isCheckedByRoomName(room2.getRoomName()));
 
     }
 

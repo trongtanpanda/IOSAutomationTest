@@ -88,7 +88,6 @@ public class GeneralPage {
         btnHideYearPicker.waitForVisibility(Constants.SHORT_TIME);
         btnHideYearPicker.click();
         WebElement dayElm = DriverManager.getDriver().findElement(By.id(Integer.toString(day)));
-        System.out.println(dayElm.isDisplayed());
         dayElm.click();
     }
 }
