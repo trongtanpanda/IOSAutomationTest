@@ -26,10 +26,10 @@ public class DateHelper {
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         return localDate.getDayOfMonth();
     }
-    public static long distanceBetweenTwoDays(Date start, Date end){
+    public static Integer distanceBetweenTwoDays(Date start, Date end){
         LocalDate startDate = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate endDate = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        return Math.abs(ChronoUnit.DAYS.between(startDate,endDate));
+        return (int)Math.abs(ChronoUnit.DAYS.between(startDate,endDate));
     }
 
     public static Date plusDaysInDate(Date date, int days) {

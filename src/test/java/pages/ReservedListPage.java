@@ -3,10 +3,12 @@ package pages;
 import common.Constants;
 import common.Room;
 import common.SearchType;
+import common.helpers.CurrencyHelper;
 import common.helpers.DateHelper;
 import common.helpers.LocatorFactory;
 import elements.Button;
 import elements.Label;
+import elements.Table;
 import elements.TextBox;
 import net.sf.cglib.core.Local;
 
@@ -27,7 +29,7 @@ public class ReservedListPage extends GeneralPage {
     protected Label lblCheckinDate = new Label("id=チェックイン日: %s");
     protected Label lblCheckoutDate = new Label("id=チェックアウト日: %s");
     protected Label lblTotalPrice = new Label("id=合計: ¥%s");
-
+    protected Table tblEmptyList = new Table("id=Empty list");
 
 
     public void changeSearchType(SearchType searchType){
@@ -72,9 +74,9 @@ public class ReservedListPage extends GeneralPage {
     public boolean isRoomExist(Room room){
         lblRoom.setDynamicValue(room.getRoomName());
         lblTypeRoom.setDynamicValue(room.getRoomType());
-        lblPrice.setDynamicValue(room.getPrice());
-        System.out.println(lblPrice.isDisplayed());
-        return lblRoom.isDisplayed() && lblTypeRoom.isDisplayed() ;
+        lblPrice.setDynamicValue(CurrencyHelper.currencyConvert(room.getPrice()));
+        lblPrice.waitForVisibility(Constants.SHORT_TIME);
+        return lblRoom.isDisplayed() && lblTypeRoom.isDisplayed() && lblPrice.isDisplayed();
     }
 
     public boolean isBookedDateMatch(Date date){
@@ -88,7 +90,7 @@ public class ReservedListPage extends GeneralPage {
         return lblCheckoutDate.isDisplayed() && lblCheckinDate.isDisplayed();
     }
 
-    public boolean isTotalMatch(long total){
+    public boolean isTotalMatch(String total){
         lblTotalPrice.setDynamicValue(total);
         return lblTotalPrice.isDisplayed();
     }
@@ -98,6 +100,10 @@ public class ReservedListPage extends GeneralPage {
         return lblPaymentMethod.isDisplayed();
     }
 
+    public boolean isEmptyList(){
+        tblEmptyList.waitForVisibility(Constants.SHORT_TIME);
+        return tblEmptyList.isDisplayed();
+    }
 
 
 
