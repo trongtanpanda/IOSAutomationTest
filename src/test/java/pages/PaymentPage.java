@@ -52,9 +52,9 @@ public class PaymentPage extends GeneralPage {
         txtCardNumber.waitForVisibility(Constants.SHORT_TIME);
         txtCardNumber.sendKeys(paymentCard.getCardNumber());
         txtCardNumber.sendKeys(Keys.RETURN);
-        txtExpiredDate.sendKeys(String.valueOf(paymentCard.getExpiredDate()));
+        txtExpiredDate.sendKeys(paymentCard.getExpiredDate());
         txtCVV.waitForVisibility(Constants.SHORT_TIME);
-        txtCVV.sendKeys(String.valueOf(paymentCard.getCVV()));
+        txtCVV.sendKeys(paymentCard.getCVV());
         txtCVV.sendKeys(Keys.RETURN);
     }
 

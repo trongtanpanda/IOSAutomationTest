@@ -232,13 +232,13 @@ public class ReservePage extends GeneralPage {
         optPrepay.waitForVisibility(Constants.SHORT_TIME);
         optPrepay.click();
         txtExpiredDate.waitForVisibility(Constants.SHORT_TIME);
-        txtExpiredDate.sendKeys(String.valueOf(paymentCard.getExpiredDate()));
+        txtExpiredDate.sendKeys(paymentCard.getExpiredDate());
         txtNameCard.waitForVisibility(Constants.SHORT_TIME);
         txtNameCard.sendKeys(paymentCard.getCardName());
         txtCardNumber.waitForVisibility(Constants.SHORT_TIME);
         txtCardNumber.sendKeys(paymentCard.getCardNumber());
         txtCVV.waitForVisibility(Constants.SHORT_TIME);
-        txtCVV.sendKeys(String.valueOf(paymentCard.getCVV()));
+        txtCVV.sendKeys(paymentCard.getCVV());
         txtCVV.sendKeys(Keys.RETURN);
     }
 

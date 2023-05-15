@@ -27,8 +27,6 @@ public class TestConstants {
 	public static final String TC14PASSWORD = "vision2022";
 	public static final String TC14PASSWORDENCRYPTION = "••••••••••";
 
-	public static final PaymentCard TC21CARD = new PaymentCard("", "2222333344445555", 1224,333);
-	//Pattern 1
 	public static final String TC01_FAILED_DATA = "abctest";
 	//TC04
 	public static final String TC04_DAY_FOR_SEARCH = "2023/08/15";
@@ -63,7 +61,6 @@ public class TestConstants {
 	public static final String PT3_TC03_SELECT_ROOM_1 = "201";
 	public static final String PT3_TC03_CHECK_IN_DAY_1 = "2023/08/27";
 	public static final String PT3_TC03_CHECK_OUT_DAY_1 = "2023/08/29";
-	public static final PaymentCard TC19_PAYMENT_DATA = new PaymentCard("NGUYEN VAN A", "1111222233334444", 426, 952);
 	public static final String PREPAYMENT = "元払い";
 	public static final String POSTPAID = "後払い";
 

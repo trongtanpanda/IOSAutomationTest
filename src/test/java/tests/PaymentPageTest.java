@@ -1,11 +1,13 @@
 package tests;
 
+import common.Card;
 import common.Room;
 import common.TestConstants;
 import common.User;
 import common.helpers.DateHelper;
 import common.helpers.Logger;
 import io.qameta.allure.Description;
+import objectData.PaymentCard;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.PaymentPage;
@@ -37,7 +39,9 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.2 「カード番号」フィールド に「2222 3333 4444 5555」を入力する");
         Logger.info("2.3「有効期限」フィールド に 「12/24」を入力する");
         Logger.info("2.4 「cvv」フィールド に「333」を入力する");
-        paymentPage.prePayemnt(TestConstants.TC21CARD);
+        PaymentCard card = new PaymentCard().setPaymentCard(Card.VAND);
+
+        paymentPage.prePayemnt(card);
         Logger.info("3.「予約を確認する」ボタンを押下");
         paymentPage.payment();
         paymentPage.isErrMsgACNameDisplayed();
