@@ -1,0 +1,132 @@
+{
+  "btnGotoPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnGotoPayment"
+    ]
+  },
+  "btnPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnPayment"
+    ]
+  }
+,
+  "btnBack": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnBack"
+    ]
+  } ,
+  "optPrepay": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=opt1"
+    ]
+  },
+  "optPostPaid": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=opt0"
+    ]
+  },
+  "btnOk": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=Ok"
+    ]
+  },
+  "btnCancel": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=キャンセル"
+    ]
+  },
+  "btnAlertOk": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=btnOk"
+    ]
+  },
+  "txtNameCard": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtNameCard"
+    ]
+  },
+  "txtCardNumber": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCardNumber"
+    ]
+  },
+  "txtExpiredDate": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtExpiredDate"
+    ]
+  },
+  "txtCVV": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=txtCVV"
+    ]
+  },
+
+  "errMsgACName": {
+  "locator": [
+    "Browser:xpath=",
+    "AppBrowser:xpath=",
+    "Android:id=",
+    "IOS:id=errMsgACName"
+  ]
+},
+  "errMsgACNumber": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=errMsgACNumber"
+    ]
+  },
+  "errMsgExpiredDate": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=errMsgExpiredDate"
+    ]
+  },
+  "errMsgSecureCode": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=errMsgSecureCode"
+    ]
+  }
+}

@@ -27,7 +27,7 @@ public class TestConstants {
 	public static final String TC14PASSWORD = "vision2022";
 	public static final String TC14PASSWORDENCRYPTION = "••••••••••";
 
-
+	public static final PaymentCard TC21CARD = new PaymentCard("", "2222333344445555", 1224,333);
 	//Pattern 1
 	public static final String TC01_FAILED_DATA = "abctest";
 	//TC04
