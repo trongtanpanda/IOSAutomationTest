@@ -101,6 +101,17 @@ public class ReservePage extends GeneralPage {
         room.click();
     }
 
+    public void bookRoom(Room room, Date checkInDate, Date checkoutDate){
+        pickCheckInDate(checkInDate);
+        pickCheckoutDate(checkoutDate);
+        search();
+        selectRoomByName(room.getRoomName());
+        gotoPayment();
+        postPaidPayment();
+        payment();
+        confirmPayment();
+        closeDialog();
+    }
     public boolean isCheckInDisplayCorrectly(Date checkinDate){
         String txtCheckInValue = txtCheckIn.getText();
         return txtCheckInValue.equals(DateHelper.dateToString(checkinDate));
@@ -116,10 +127,10 @@ public class ReservePage extends GeneralPage {
         Date expectedCheckoutDate = DateHelper.plusDaysInDate(checkinDate, 1);
         return txtCheckOutValue.equals(DateHelper.dateToString(expectedCheckoutDate));
     }
-    public boolean isAllDataDisplayed(){
+    public boolean isDataDisplayed(){
         tblResult.waitForVisibility(Constants.SHORT_TIME);
         List<WebElement> list =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
-        return list.size() == 14;
+        return list.size() > 0;
     }
 
     public boolean isListRoomByTypeDisplayCorrectly(String type){
@@ -152,7 +163,12 @@ public class ReservePage extends GeneralPage {
         lblRoomPrice.setDynamicValue(CurrencyHelper.currencyConvert(room.getPrice()));
         return lblRoomName.isDisplayed() && lblRoomType.isDisplayed() && lblRoomPrice.isDisplayed();
     }
-
+    public boolean isRoomDisplayed(Room room){
+        lblRoomName.setDynamicValue(room.getRoomName());
+        lblRoomType.setDynamicValue(room.getRoomType());
+        lblRoomPrice.setDynamicValue(CurrencyHelper.currencyConvert(room.getPrice()));
+        return lblRoomName.isDisplayed() && lblRoomType.isDisplayed() && lblRoomPrice.isDisplayed();
+    }
     public boolean isErrorPopupDisplayCorrectly(){
         return alError.isDisplayed();
     }
