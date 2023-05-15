@@ -29,10 +29,11 @@ public class ReservePage extends GeneralPage {
     protected Button btnGotoPayment = new Button(LocatorFactory.getLocator("btnGotoPayment"));
     protected Label optPrepay = new Label(LocatorFactory.getLocator("optPrepay"));
     protected Label optPostPaid = new Label(LocatorFactory.getLocator("optPostPaid"));
+    protected Button btnPayment = new Button(LocatorFactory.getLocator("btnPayment"));
     protected Button btnOk = new Button(LocatorFactory.getLocator("btnOk"));
     protected Button btnCancel = new Button(LocatorFactory.getLocator("btnCancel"));
     protected Button btnAlertOk = new Button(LocatorFactory.getLocator("btnAlertOk"));
-    protected Button btnPayment = new Button(LocatorFactory.getLocator("btnPayment"));
+    protected Button btnBack = new Button(LocatorFactory.getLocator("btnBack"));
     protected TextBox txtNameCard = new TextBox(LocatorFactory.getLocator("txtNameCard"));
     protected TextBox txtCardNumber = new TextBox(LocatorFactory.getLocator("txtCardNumber"));
     protected TextBox txtExpiredDate = new TextBox(LocatorFactory.getLocator("txtExpiredDate"));
@@ -44,6 +45,10 @@ public class ReservePage extends GeneralPage {
     protected Label lblDetailDescription = new Label(LocatorFactory.getLocator("lblDetailDescription"));
     protected Button btnCloseRoomDetail = new Button(LocatorFactory.getLocator("btnCloseRoomDetail"));
     protected Alert alError = new Alert(LocatorFactory.getLocator("alError"));
+    protected Label lblRoomName = new Label("id=部屋: %s");
+    protected Label lblRoomType = new Label("id=タイプ: %s");
+    protected Label lblRoomPrice = new Label("id=価格: ¥%s");
+    protected CheckBox ckbRoom = new CheckBox("id=ckb-%s");
 
     public void searchData(Date checkin, Date checkout){
         txtCheckIn.waitForVisibility(Constants.SHORT_TIME);
@@ -141,6 +146,12 @@ public class ReservePage extends GeneralPage {
                 && lblDetailFloor.isDisplayed() && lblDetailPrice.isDisplayed();
         return isDisplay && isInfoCorrectly;
     }
+    public boolean isRoomDisplayCorrectlyInPaymentPage(Room room){
+        lblRoomName.setDynamicValue(room.getRoomName());
+        lblRoomType.setDynamicValue(room.getRoomType());
+        lblRoomPrice.setDynamicValue(CurrencyHelper.currencyConvert(room.getPrice()));
+        return lblRoomName.isDisplayed() && lblRoomType.isDisplayed() && lblRoomPrice.isDisplayed();
+    }
 
     public boolean isErrorPopupDisplayCorrectly(){
         return alError.isDisplayed();
@@ -149,8 +160,6 @@ public class ReservePage extends GeneralPage {
     public boolean isTotalDisplayCorrectly(Integer total){
         String actualValue = lblTotal.getText();
         String expectedValue = "合計: ¥" + CurrencyHelper.currencyConvert(total);
-        System.out.println(actualValue);
-        System.out.println(expectedValue);
         return expectedValue.equals(actualValue) && lblTotal.isDisplayed();
     }
     public boolean isCheckedByRoomName(String roomName){
@@ -180,11 +189,12 @@ public class ReservePage extends GeneralPage {
         btnAlertOk.click();
     }
     public void selectRoomByName(String name){
+        ckbRoom.setDynamicValue(name);
         WebElement checkBox = DriverManager.getDriver().findElement(By.id("ckb-"+name));
         WebElement table = DriverManager.getDriver().findElement(By.id("searchList"));
         DriverUtils.scrollDownToElement(table,checkBox);
-        checkBox.click();
-
+        ckbRoom.waitForDisplay(Constants.SHORT_TIME);
+        ckbRoom.click();
     }
 
     public void gotoPayment(){
@@ -193,7 +203,10 @@ public class ReservePage extends GeneralPage {
     public String getLblHeader(){
         return lblHeader.getText();
     }
-
+    public void backToReservePage(){
+        btnBack.waitForVisibility(Constants.SHORT_TIME);
+        btnBack.click();
+    }
     public void postPaidPayment() {
         optPostPaid.waitForVisibility(Constants.SHORT_TIME);
         optPostPaid.click();
