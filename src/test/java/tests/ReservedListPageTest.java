@@ -20,7 +20,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test()
     @Description("テスト: UIを確認する")
-    public void TC15_VerifyThatTitleAndMenuAndSearchOptionisDisplayed() {
+    public void TC01_VerifyThatTitleAndMenuAndSearchOptionisDisplayed() {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("Precondition: 有効なアカウントでログイン");
@@ -35,7 +35,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test()
     @Description()
-    public void TC16_VerifyThatWhenClickReserveRoomOptionTransitionToTheRoomReservationScreen() {
+    public void TC02_VerifyThatWhenClickReserveRoomOptionTransitionToTheRoomReservationScreen() {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         ReservePage reservePage = new ReservePage();
@@ -47,12 +47,12 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservedListPage.showReservedList();
         reservedListPage.gotoReservePage();
         Assert.assertEquals(reservePage.getLblHeader(), TestConstants.LBL_HEADER);
-
+        Assert.assertTrue(reservePage.isMenuButtonDisplayed());
     }
 
     @Test()
     @Description()
-    public void TC17_VerifyThatWhenClickLogoutOptionTransitionToTheLoginScreen() {
+    public void TC03_VerifyThatWhenClickLogoutOptionTransitionToTheLoginScreen() {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 有効なアカウントでログイン");
@@ -70,7 +70,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC18_VerifyThatTheReservedRoomInformationAndTheRoomInformationDisplayedMatch() {
+    public void TC04_VerifyThatTheReservedRoomInformationAndTheRoomInformationDisplayedMatch() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -94,7 +94,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC19() {
+    public void TC05() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -126,7 +126,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC20() {
+    public void TC06() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -140,7 +140,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC21() {
+    public void TC07() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -175,7 +175,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC22() {
+    public void TC08() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -204,7 +204,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC23() {
+    public void TC09() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -232,7 +232,7 @@ public class ReservedListPageTest extends TestBaseIOS {
 
     @Test
     @Description()
-    public void TC24(){
+    public void TC10(){
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
