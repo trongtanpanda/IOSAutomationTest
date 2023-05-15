@@ -3,9 +3,14 @@ package pages;
 import common.Constants;
 import common.TestConstants;
 import common.helpers.LocatorFactory;
+import drivers.DriverManager;
+import drivers.DriverUtils;
 import elements.Button;
 import elements.Label;
 import elements.TextBox;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.HideKeyboardStrategy;
 import objectData.PaymentCard;
 import org.openqa.selenium.Keys;
 
@@ -42,15 +47,12 @@ public class PaymentPage extends GeneralPage {
     public void prePayemnt(PaymentCard paymentCard) {
         optPrepay.waitForVisibility(Constants.SHORT_TIME);
         optPrepay.click();
-
         txtNameCard.waitForVisibility(Constants.SHORT_TIME);
         txtNameCard.sendKeys(paymentCard.getCardName());
         txtCardNumber.waitForVisibility(Constants.SHORT_TIME);
         txtCardNumber.sendKeys(paymentCard.getCardNumber());
-        txtExpiredDate.waitForVisibility(Constants.LONG_TIME);
-        txtExpiredDate.sendIOSKeys(Keys.RETURN);
-        txtExpiredDate.click();
-        txtExpiredDate.sendKeys(String.valueOf(1));
+        txtCardNumber.sendKeys(Keys.RETURN);
+        txtExpiredDate.sendKeys(String.valueOf(paymentCard.getExpiredDate()));
         txtCVV.waitForVisibility(Constants.SHORT_TIME);
         txtCVV.sendKeys(String.valueOf(paymentCard.getCVV()));
         txtCVV.sendKeys(Keys.RETURN);
