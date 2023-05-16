@@ -8,6 +8,7 @@ import common.helpers.CurrencyHelper;
 import common.helpers.DateHelper;
 import common.helpers.Logger;
 import io.qameta.allure.Description;
+import objectData.Account;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -24,7 +25,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("Precondition: 有効なアカウントでログイン");
-        loginPage.login(User.TANAKA);
+        loginPage.login(new Account().setAccount(User.TANAKA));
         Logger.info("1. メニューをクリックする");
         Logger.info("2. 部屋を予約したリストを選択する");
         reservedListPage.showReservedList();
@@ -40,7 +41,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         ReservePage reservePage = new ReservePage();
         Logger.info("Precondition: 有効なアカウントでログイン");
-        loginPage.login(User.TANAKA);
+        loginPage.login(new Account().setAccount(User.TANAKA));
         Logger.info("1. メニューをクリックする");
         Logger.info("2. 部屋を予約したリストを選択する");
         Logger.info("3. 部屋を予約するオプションを選択する");
@@ -56,7 +57,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 有効なアカウントでログイン");
-        loginPage.login(User.TANAKA);
+        loginPage.login(new Account().setAccount(User.TANAKA));
         Logger.info("1. メニューをクリックする");
         Logger.info("2. 部屋を予約したリストを選択する");
         Logger.info("3. ログアウトオプションを選択する");
@@ -76,7 +77,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
-        loginPage.login(User.YAMAHA);
+        loginPage.login(new Account().setAccount(User.YAMAHA));
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         reservePage.selectRoomByName(Room.R203.getRoomName());
         reservePage.gotoPayment();
@@ -100,7 +101,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 本日に部屋を予約する（チェックアウト日:翌日, ２０１号室を選択する, 支払方法:　後払い)");
-        loginPage.login(User.HONDA);
+        loginPage.login(new Account().setAccount(User.HONDA));
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         reservePage.selectRoomByName(Room.R201.getRoomName());
         reservePage.gotoPayment();
@@ -131,7 +132,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 有効なアカウントでログイン");
-        loginPage.login(User.SUZUKI);
+        loginPage.login(new Account().setAccount(User.SUZUKI));
         Logger.info("1. メニューをクリックする");
         Logger.info("2. 部屋を予約したリストを選択する");
         reservePage.showReservedList();
@@ -146,7 +147,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 任意の日付で５部屋を予約する");
-        loginPage.login(User.SUZUKI);
+        loginPage.login(new Account().setAccount(User.SUZUKI));
         reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 5), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 5), 5));
         reservePage.selectRoomByName(Room.R303.getRoomName());
         reservePage.selectRoomByName(Room.R301.getRoomName());
@@ -181,7 +182,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 任意の日付で５部屋を予約する");
-        loginPage.login(User.SUZUKI);
+        loginPage.login(new Account().setAccount(User.SUZUKI));
         reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 5), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 5), 5));
         reservePage.selectRoomByName(Room.R203.getRoomName());
         reservePage.selectRoomByName(Room.R303.getRoomName());
@@ -209,7 +210,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
-        loginPage.login(User.YAMOTO);
+        loginPage.login(new Account().setAccount(User.YAMOTO));
         Logger.info("前提条件: 2. 本日に部屋を予約する（チェックイン日：翌日、チェックアウト日：明後日、４０３号室を選択する、支払方法；後払い");
         reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 1), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 1), 1));
         reservePage.selectRoomByName(Room.R403.getRoomName());
@@ -237,7 +238,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. Yamahaアカウントでログインする");
-        loginPage.login(User.YAMAHA);
+        loginPage.login(new Account().setAccount(User.YAMAHA));
         Logger.info("前提条件: 2. 本日に部屋を予約する（チェックイン日：翌日、チェックアウト日：明後日、２０６号室を選択する、支払方法；後払い");
         reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 1), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 1), 1));
         reservePage.selectRoomByName(Room.R206.getRoomName());
@@ -249,7 +250,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("1. ログアウトする");
         reservePage.logout();
         Logger.info("2. Yamadaアカウントでログインする");
-        loginPage.login(User.YAMAHA);
+        loginPage.login(new Account().setAccount(User.YAMAHA));
         Logger.info("3. メニューをクリックする");
         Logger.info("4. 部屋をを予約したリストを選択する");
         reservePage.showReservedList();
