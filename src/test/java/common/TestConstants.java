@@ -1,5 +1,6 @@
 package common;
 
+import objectData.Account;
 import objectData.PaymentCard;
 
 import java.util.Date;
@@ -12,6 +13,11 @@ public class TestConstants {
 	public static final String LBL_HEADER_RESERVEDLIST = "予約した部屋リスト";
 	public static final String EMAIL = "test";
 	public static final String PWD = "admin";
+	public static final String WRONGEMAIL = "Hokane.edogawa@gmail.com";
+	public static final String WRONGPASSWORD = "Wrongpassword";
+	public static final String EMAILBLANK = "";
+	public static final String PASSWORDBLANK = "";
+	public static final Account WRONGEMAILANDPASSWORD = new Account( "tomioka.giyu@gmail.com", "wrongpassword");
 
 	public static final String BOOKED_ROOM = "予約した部屋";
 	public static final String LOGOUT = "ログアウト";

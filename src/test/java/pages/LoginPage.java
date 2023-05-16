@@ -6,6 +6,7 @@ import common.helpers.LocatorFactory;
 import elements.Button;
 import elements.Label;
 import elements.TextBox;
+import objectData.Account;
 
 public class LoginPage {
 
@@ -30,9 +31,9 @@ public class LoginPage {
         btnLogin.click();
     }
 
-    public void login(User user) {
-        inputEmail(user.getEmail());
-        inputPassword(user.getPassword());
+    public void login(Account account) {
+        inputEmail(account.getEmail());
+        inputPassword(account.getPassword());
         pressLoginButton();
     }
 

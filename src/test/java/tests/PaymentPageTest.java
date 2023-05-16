@@ -7,6 +7,7 @@ import common.User;
 import common.helpers.DateHelper;
 import common.helpers.Logger;
 import io.qameta.allure.Description;
+import objectData.Account;
 import objectData.PaymentCard;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -24,7 +25,8 @@ public class PaymentPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         PaymentPage paymentPage = new PaymentPage();
         Logger.info("前提条件： ユーザーがログインしました");
-        loginPage.login(User.YAMAHA);
+        Account yamaha = new Account().setAccount(User.YAMAHA);
+        loginPage.login(yamaha);
         Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
         Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
         Logger.info("3. 検索ボタンを押下する");
@@ -39,8 +41,8 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.2 「カード番号」フィールド に「2222 3333 4444 5555」を入力する");
         Logger.info("2.3「有効期限」フィールド に 「12/24」を入力する");
         Logger.info("2.4 「cvv」フィールド に「333」を入力する");
-        PaymentCard card = new PaymentCard().setPaymentCard(Card.VAND);
-
+        PaymentCard card = new PaymentCard().setPaymentCard(Card.VANB);
+        card.setCardName("");
         paymentPage.prePayemnt(card);
         Logger.info("3.「予約を確認する」ボタンを押下");
         paymentPage.payment();

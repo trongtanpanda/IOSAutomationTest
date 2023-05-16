@@ -7,6 +7,7 @@ import common.helpers.DateHelper;
 import common.helpers.Logger;
 import io.qameta.allure.Description;
 import jdk.jfr.Name;
+import objectData.Account;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -24,8 +25,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
 
@@ -46,8 +47,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkOutDate = DateHelper.plusDaysInDate(new Date(),1);
 
@@ -68,8 +69,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
 
@@ -89,8 +90,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
@@ -116,8 +117,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
@@ -146,8 +147,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
@@ -176,8 +177,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
@@ -207,8 +208,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
@@ -237,8 +238,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
@@ -273,8 +274,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
@@ -325,8 +326,8 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
@@ -370,8 +371,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
@@ -413,8 +414,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
 
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
@@ -476,8 +477,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
@@ -507,8 +508,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
@@ -538,8 +539,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
@@ -568,8 +569,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
@@ -599,8 +600,8 @@ public class ReservePageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         Logger.info("前提条件");
         Logger.info("ユーザーがログインしました");
-        User user = User.TANAKA;
-        loginPage.login(user);
+        Account tanaka = new Account().setAccount(User.TANAKA);
+        loginPage.login(tanaka);
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
