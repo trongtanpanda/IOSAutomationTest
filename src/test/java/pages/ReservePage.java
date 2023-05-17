@@ -173,6 +173,13 @@ public class ReservePage extends GeneralPage {
         return alError.isDisplayed();
     }
 
+    public boolean isRoomNotExistInTblList(Room room) {
+        ckbRoom.setDynamicValue(room.getRoomName());
+        WebElement table = DriverManager.getDriver().findElement(By.id("searchList"));
+        List<WebElement> matchingElements = table.findElements(By.id("ckb-"+room.getRoomName()));
+        return matchingElements.isEmpty();
+    }
+
     public boolean isTotalDisplayCorrectly(Integer total){
         String actualValue = lblTotal.getText();
         String expectedValue = "合計: ¥" + CurrencyHelper.currencyConvert(total);

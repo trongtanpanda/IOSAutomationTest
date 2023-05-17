@@ -16,7 +16,7 @@ import tests.TestBaseIOS;
 public class LoginPageTest extends TestBaseIOS {
 
     @Test()
-    @Description("テスト: UIを確認する")
+    @Description("テスト: 電子メール、パスワードなどのすべてのフィールドに有効なプレースホルダーがあることを確認する")
     public void TC01() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -24,7 +24,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: UIを確認する")
+    @Description("テスト: 電子メールフィールドが存在することを確認する")
     public void TC02(){
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -32,7 +32,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: UIを確認する")
+    @Description("テスト: パスワード フィールドが存在することを確認する")
     public void TC03(){
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -40,7 +40,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: UIを確認する")
+    @Description("テスト: ログイン ボタンが存在することを確認する")
     public void TC04(){
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -48,7 +48,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: ログイン成功")
+    @Description("テスト: ユーザーが有効なアカウントでログインできることを確認する")
     public void TC05() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -63,7 +63,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ユーザーが無効な電子メールと無効なパスワードでログインできないことを確認する")
     public void TC06() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -78,7 +78,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ユーザーが有効な電子メールと無効なパスワードでログインできないことを確認する")
     public void TC07() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -93,7 +93,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ユーザーが無効な電子メールと有効なパスワードでログインできないことを確認する")
     public void TC08() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -107,7 +107,7 @@ public class LoginPageTest extends TestBaseIOS {
 
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ユーザーが電子メールを空白のままにすると、検証メッセージが表示されることを確認する")
     public void TC09() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -122,7 +122,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ユーザーがパスワードを空白のままにすると、検証メッセージが表示されることを確認する")
     public void TC10() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -137,7 +137,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ログアウト リンクがログイン/ホームページにリダイレクトされることを確認する。")
     public void TC11() {
         Logger.info("前提条件: 有効なアカウントでログインする");
         LoginPage loginPage = new LoginPage();
@@ -154,7 +154,7 @@ public class LoginPageTest extends TestBaseIOS {
         }
 
     @Test()
-    @Description("テスト: ログイン成功")
+    @Description("テスト: ログインに成功した後、ユーザーが適切なページにリダイレクトされることを確認する")
     public void TC12() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -169,7 +169,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　ラベルのフォント スタイルとサイズ、および各オブジェクトのテキストがはっきりと見えるかどうかを確認します。")
     public void TC13() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");
@@ -180,7 +180,7 @@ public class LoginPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト：　ログインを確認する")
+    @Description("テスト：　パスワード フィールドに入力するパスワードが暗号化されていることを確認します。")
     public void TC14() {
         LoginPage loginPage = new LoginPage();
         Logger.info("1. アプリを開く");

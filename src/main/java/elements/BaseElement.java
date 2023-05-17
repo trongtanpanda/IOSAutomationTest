@@ -2,6 +2,7 @@ package elements;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -128,8 +129,14 @@ public class BaseElement {
     public void click() {
         getElement().click();
     }
-    public void clickInvisible(){
-        DriverUtils.getDriver().executeScript("mobile: click", getElement());
+    public void clickInvisible(int x, int y){
+        HashMap<String, Object> tapObject = new HashMap<String, Object>();
+        tapObject.put("x", x);
+        tapObject.put("y", y);
+        DriverUtils.getDriver().executeScript("mobile: tap", tapObject);
+    }
+    public void clickInvisible2(){
+        DriverUtils.getDriver().executeScript("arguments[0].click();", getElement());
     }
     public List<WebElement> getChildElements(By by) {
         return getElement().findElements(by);
