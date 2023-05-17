@@ -128,6 +128,9 @@ public class BaseElement {
     public void click() {
         getElement().click();
     }
+    public void clickInvisible(){
+        DriverUtils.getDriver().executeScript("mobile: click", getElement());
+    }
     public List<WebElement> getChildElements(By by) {
         return getElement().findElements(by);
     }

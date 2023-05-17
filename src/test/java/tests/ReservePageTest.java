@@ -31,11 +31,11 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
 
         Logger.info("1.「チェックイン日」を押下する");
-        Logger.info("2. 今日に選択する");
+        Logger.info("2. 本日を選択する (ex: 2023/05/10)");
         Logger.info("3.「閉じる」ボタンを押下する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.verify("「yyyy/mm/dd」形式で表示されること");
+        Logger.verify("「チェックイン日」フィールドの値は本日「2023/05/10」こと,「yyyy/mm/dd」形式で表示されること");
         Assert.assertTrue(reservePage.isCheckInDisplayCorrectly(checkInDate));
     }
 
@@ -53,11 +53,12 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkOutDate = DateHelper.plusDaysInDate(new Date(),1);
 
         Logger.info("1.「チェックアウト日」を押下する");
-        Logger.info("2. 明日に選択する");
+        Logger.info("2. 翌日を選択する (ex: 2023/05/11)");
         Logger.info("3.「閉じる」ボタンを押下する");
         reservePage.pickCheckoutDate(checkOutDate);
 
-        Logger.verify("「yyyy/mm/dd」形式で表示されること");
+
+        Logger.verify("「チェックアウト日」フィールドの値は翌日「2023/05/11」こと,「yyyy/mm/dd」形式で表示されること");
         Assert.assertTrue(reservePage.isCheckoutDisplayCorrectly(checkOutDate));
     }
 
@@ -74,11 +75,11 @@ public class ReservePageTest extends TestBaseIOS {
 
         Date checkInDate = new Date();
 
-        Logger.info("1.「チェックイン日」を 今日に選択する");
+        Logger.info("1「チェックイン日」で本日（ex: 2023/10/12）に選択する");
         reservePage.pickCheckInDate(checkInDate);
 
         Logger.info("2.「チェックアウト日」を押下する");
-        Logger.verify("「チェックイン日」の前の選択を許可しないこと");
+        Logger.verify("翌日（ex: 2023/20/13）の前の選択を許可しないこと");
         Assert.assertTrue(reservePage.isCheckoutShouldNotEqualOrLessThanCheckInDate(checkInDate));
     }
 
@@ -96,16 +97,16 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("全てのデータが表示されこと");
+        Logger.verify("データが表示されこと");
         Assert.assertTrue(reservePage.isDataDisplayed());
     }
 
@@ -123,10 +124,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -153,10 +154,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -181,12 +182,12 @@ public class ReservePageTest extends TestBaseIOS {
         loginPage.login(tanaka);
 
         Date checkInDate = new Date();
-        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -214,10 +215,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -244,10 +245,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -280,10 +281,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -332,10 +333,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -351,9 +352,9 @@ public class ReservePageTest extends TestBaseIOS {
 
         Date newCheckInDate = DateHelper.plusDaysInDate(checkInDate,2);
         Date newCheckoutDate = DateHelper.plusDaysInDate(checkInDate,3);
-        Logger.info("5.「チェックイン日」を「2023/05/16」に設定する");
+        Logger.info("5.「チェックイン日」で2日後を設定する");
         reservePage.pickCheckInDate(newCheckInDate);
-        Logger.info("6.「チェックアウト日」を「2023/05/17」に設定する");
+        Logger.info("6.「チェックアウト日」で3日後を設定する");
         reservePage.pickCheckoutDate(newCheckoutDate);
         Logger.info("7. 検索ボタンを押下する");
         reservePage.search();
@@ -377,10 +378,10 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
@@ -420,24 +421,24 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で翌日を設定する\n");
         reservePage.pickCheckoutDate(checkoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Room room1 = Room.R201;
+        Room room1 = Room.R401;
         Room room2 = Room.R301;
-        Logger.info("4. 部室名「201」と「301」をチェックする");
+        Logger.info("4. 部室名「401」と「301」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         int total = room1.getPrice() + room2.getPrice();
-        Logger.verify("合計が0円から27000円に変更されこと,「201」と「301」をチェックすること");
+        Logger.verify("合計が0円から27000円に変更されこと,「401」と「301」をチェックすること");
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room1));
         Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room2));
@@ -456,10 +457,10 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.verify("手順9確認時、「部室予約」画面が表示されこと");
 
-        Logger.verify("「チェックイン日」が「2023/05/15」表示されこと");
+        Logger.verify("「チェックイン日」が本日表示されこと");
         Assert.assertTrue(reservePage.isCheckInDisplayCorrectly(checkInDate));
 
-        Logger.verify("「チェックアウト日」が「2023/05/16」表示されこと");
+        Logger.verify("「チェックアウト日」が翌日表示されこと");
         Assert.assertTrue(reservePage.isCheckoutDisplayCorrectly(checkoutDate));
 
         Logger.verify("部室「201」と「301」が消えること");
@@ -483,21 +484,21 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
         Room room = Room.R201;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の201を予約した");
+        Logger.info("６日後(ex:2023/05/06)から10日後 (ex: 2023/05/10)まで、部室の201を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,1);
         Date expectCheckoutDate =  DateHelper.plusDaysInDate(today,6);
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で1日後(ex: 2023/05/01)を設定する");
         reservePage.pickCheckInDate(expectCheckInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で ６日後(ex:2023/05/06)を設定する");
         reservePage.pickCheckoutDate(expectCheckoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("全てのデータが表示されこと");
+        Logger.verify("部室「201」が表示されこと");
         Assert.assertTrue(reservePage.isRoomDisplayed(room));
     }
 
@@ -514,21 +515,21 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
         Room room = Room.R202;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の201を予約した");
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の202を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,10);
         Date expectCheckoutDate =  DateHelper.plusDaysInDate(today,20);
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で10日後(ex:2023/05/10)を設定する");
         reservePage.pickCheckInDate(expectCheckInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で20日後(ex:2023/05/20)を設定する");
         reservePage.pickCheckoutDate(expectCheckoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("全てのデータが表示されこと");
+        Logger.verify("部室「202」が表示されこと");
         Assert.assertTrue(reservePage.isRoomDisplayed(room));
     }
 
@@ -545,21 +546,21 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
         Room room = Room.R203;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の201を予約した");
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の203を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,1);
         Date expectCheckoutDate =  DateHelper.plusDaysInDate(today,8);
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で1日後(ex:2023/05/01)を設定する");
         reservePage.pickCheckInDate(expectCheckInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で8日後(ex:2023/05/08)を設定する");
         reservePage.pickCheckoutDate(expectCheckoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("全てのデータが表示されこと");
+        Logger.verify("部室「203」が不表示されこと");
         Assert.assertFalse(reservePage.isRoomDisplayed(room));
     }
     @Test()
@@ -575,21 +576,21 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
         Room room = Room.R204;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の201を予約した");
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の204を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,7);
         Date expectCheckoutDate =  DateHelper.plusDaysInDate(today,30);
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で7日後(ex:2023/05/07)に設定");
         reservePage.pickCheckInDate(expectCheckInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で30日後(ex:2023/05/30)に設定");
         reservePage.pickCheckoutDate(expectCheckoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("全てのデータが表示されこと");
+        Logger.verify("部室「204」が不表示されこと");
         Assert.assertFalse(reservePage.isRoomDisplayed(room));
     }
     @Test()
@@ -606,21 +607,21 @@ public class ReservePageTest extends TestBaseIOS {
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
         Room room = Room.R302;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の201を予約した");
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の302を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,1);
         Date expectCheckoutDate =  DateHelper.plusDaysInDate(today,30);
-        Logger.info("1.「チェックイン日」を「2023/05/15」に設定する");
+        Logger.info("1.「チェックイン日」で1日後(ex:2023/05/01)を設定する");
         reservePage.pickCheckInDate(expectCheckInDate);
 
-        Logger.info("2.「チェックアウト日」を「2023/05/20」に設定する");
+        Logger.info("2.「チェックアウト日」で30日後(ex:2023/05/30)を設定する");
         reservePage.pickCheckoutDate(expectCheckoutDate);
 
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("全てのデータが表示されこと");
+        Logger.verify("部室「302」が不表示されこと");
         Assert.assertFalse(reservePage.isRoomDisplayed(room));
     }
 
