@@ -9,8 +9,6 @@ import common.helpers.LocatorFactory;
 import elements.Button;
 import elements.Label;
 import elements.Table;
-import elements.TextBox;
-import net.sf.cglib.core.Local;
 
 import java.util.Date;
 
@@ -71,7 +69,7 @@ public class ReservedListPage extends GeneralPage {
     }
 
 
-    public boolean isRoomExist(Room room){
+    public boolean isRoomMatchReserved(Room room){
         lblRoom.setDynamicValue(room.getRoomName());
         lblTypeRoom.setDynamicValue(room.getRoomType());
         lblPrice.setDynamicValue(CurrencyHelper.currencyConvert(room.getPrice()));

@@ -52,6 +52,11 @@ public class GeneralPage {
         btnReserve.click();
     }
 
+    public void clickMenuButton(){
+        btnMenu.waitForVisibility(Constants.SHORT_TIME);
+        btnMenu.click();
+    }
+
     public boolean isMenuButtonDisplayed() {
         btnMenu.waitForVisibility(Constants.SHORT_TIME);
         return btnMenu.isDisplayed();

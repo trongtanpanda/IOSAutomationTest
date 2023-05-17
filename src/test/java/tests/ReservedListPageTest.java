@@ -20,8 +20,8 @@ import java.util.Date;
 public class ReservedListPageTest extends TestBaseIOS {
 
     @Test()
-    @Description("テスト: UIを確認する")
-    public void TC01_VerifyThatTitleAndMenuAndSearchOptionisDisplayed() {
+    @Description("テスト: タイトル、メニュー、検索オプションがあることを確認する")
+    public void TC01() {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("Precondition: 有効なアカウントでログイン");
@@ -35,8 +35,8 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description()
-    public void TC02_VerifyThatWhenClickReserveRoomOptionTransitionToTheRoomReservationScreen() {
+    @Description("テスト：部室を予約するオプションをクリックすると、「部室予約」画面へ遷移することを確認する")
+    public void TC02() {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         ReservePage reservePage = new ReservePage();
@@ -52,8 +52,8 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description()
-    public void TC03_VerifyThatWhenClickLogoutOptionTransitionToTheLoginScreen() {
+    @Description("テスト：ログアウトオプションをクリックすると、「ロギング」画面へ遷移することを確認する")
+    public void TC03() {
         LoginPage loginPage = new LoginPage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 有効なアカウントでログイン");
@@ -70,8 +70,8 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
-    public void TC04_VerifyThatTheReservedRoomInformationAndTheRoomInformationDisplayedMatch() {
+    @Description("テスト：予約した部室情報と一覧に表示されている部室情報が一致していることを確認する")
+    public void TC04() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
@@ -86,7 +86,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservePage.confirmPayment();
         reservePage.closeDialog();
         reservePage.showReservedList();
-        Assert.assertTrue(reservedListPage.isRoomExist(Room.R203));
+        Assert.assertTrue(reservedListPage.isRoomMatchReserved(Room.R203));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
         Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1)) * Room.R203.getPrice())));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
@@ -94,7 +94,7 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
+    @Description("テスト：選択した期間内に予約された部室は、予約画面の検索リストで検索できことを確認する")
     public void TC05() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -118,7 +118,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("5. チェックアウト日フィールドで翌日を選択する");
         Logger.info("6. 探すアイコンをクリックする");
         reservedListPage.searchReservedList(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Assert.assertTrue(reservedListPage.isRoomExist(Room.R201));
+        Assert.assertTrue(reservedListPage.isRoomMatchReserved(Room.R201));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
         Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(new Date(), 1)) * Room.R201.getPrice())));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
@@ -126,7 +126,7 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
+    @Description("テスト：部室が予約されていない場合、リストは空になることを確認する")
     public void TC06() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -140,7 +140,7 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
+    @Description("テスト：最後に予約した部室がリストの一番上に表示されることを確認する")
     public void TC07() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -175,7 +175,7 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
+    @Description("テスト:検索範囲オプションで、チェックイン日とチェックアウト日を未入力の場合、空のリストが表示されることを確認する")
     public void TC08() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -204,7 +204,7 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
+    @Description("テスト:検索間隔に予約期間が含まれていないため、リストは表示されないことを確認する")
     public void TC09() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -232,7 +232,7 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description()
+    @Description("テスト：予約が成功した場合、ログアウトしても、ログイン後に部室を予約したリストが表示されること")
     public void TC10(){
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -254,7 +254,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("3. メニューをクリックする");
         Logger.info("4. 部屋をを予約したリストを選択する");
         reservePage.showReservedList();
-        Assert.assertTrue(reservedListPage.isRoomExist(Room.R206));
+        Assert.assertTrue(reservedListPage.isRoomMatchReserved(Room.R206));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
         Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(DateHelper.plusDaysInDate(TestConstants.TODAY, 1), DateHelper.plusDaysInDate(TestConstants.TODAY, 2)) * Room.R206.getPrice())));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));

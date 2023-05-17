@@ -128,5 +128,30 @@
       "Android:id=",
       "IOS:id=errMsgSecureCode"
     ]
+  },
+  "dialogTitle": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=dialogTitle"
+    ]
+  },
+  "dialogMessage": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:id=dialogMessage"
+    ]
+  },
+
+  "alertConfirmPayment": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=",
+      "IOS:xpath=//XCUIElementTypeAlert[@name=\"本気ですか？\"]"
+    ]
   }
 }

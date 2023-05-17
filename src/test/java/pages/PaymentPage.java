@@ -5,6 +5,7 @@ import common.TestConstants;
 import common.helpers.LocatorFactory;
 import drivers.DriverManager;
 import drivers.DriverUtils;
+import elements.Alert;
 import elements.Button;
 import elements.Label;
 import elements.TextBox;
@@ -33,7 +34,9 @@ public class PaymentPage extends GeneralPage {
     protected Label errMsgACNumber = new Label(LocatorFactory.getLocator("errMsgACNumber"));
     protected Label errMsgExpiredDate = new Label(LocatorFactory.getLocator("errMsgExpiredDate"));
     protected Label errMsgSecureCode = new Label(LocatorFactory.getLocator("errMsgSecureCode"));
-
+    protected Label dialogTitle = new Label(LocatorFactory.getLocator("dialogTitle"));
+    protected Label dialogMessage = new Label(LocatorFactory.getLocator("dialogMessage"));
+    protected Alert alertConfirmPayment = new Alert(LocatorFactory.getLocator("alertConfirmPayment"));
     public void backToReservePage() {
         btnBack.waitForVisibility(Constants.SHORT_TIME);
         btnBack.click();
@@ -59,7 +62,9 @@ public class PaymentPage extends GeneralPage {
     }
 
     public void payment() {
-        btnPayment.click();
+//        btnPayment.waitForVisibility(Constants.SHORT_TIME);
+        btnPayment.clickInvisible2();
+
     }
 
     public void confirmPayment() {
@@ -96,4 +101,17 @@ public class PaymentPage extends GeneralPage {
         errMsgSecureCode.waitForVisibility(Constants.SHORT_TIME);
         return errMsgSecureCode.isDisplayed();
     }
+
+    public boolean isWrongAccountDialogDisplayed(){
+        dialogTitle.waitForVisibility(Constants.SHORT_TIME);
+        dialogMessage.waitForVisibility(Constants.SHORT_TIME);
+        return dialogTitle.getText().equals(TestConstants.ERRTITLEDIALOG) && dialogMessage.getText().equals(TestConstants.ERRMSGDIALOG);
+    }
+
+    public boolean isAlertConfirmPaymentDisplayed(){
+        alertConfirmPayment.waitForDisplay(Constants.SHORT_TIME);
+        return alertConfirmPayment.isDisplayed();
+    }
+
+
 }
