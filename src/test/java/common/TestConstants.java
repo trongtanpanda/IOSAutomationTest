@@ -29,7 +29,14 @@ public class TestConstants {
 	public static final String LBLERRORMESSAGE = "アカウントまたはパスワードが無効です";
 
 	public static final Date TODAY = new Date();
-
+	public static final String ERRTITLEDIALOG= "失敗";
+	public static final String ERRMSGDIALOG = "無効なアカウントです。再入力してください";
+	public static final String SUCCESSTITLEDIALOG = "成功";
+	public static final String SUCCESSMSGDIALOG = "予約が成功したことを確認する";
+	public static final String ERRMSGACNAMECARD = "カード所有者の名前は大文字にする必要があります";
+	public static final String ERRMSGACNUMBER = "カード番号は16桁である必要があります";
+	public static final String ERRMSGEXPIREDDATE = "カードの有効期限が正しくありません";
+	public static final String ERRMSGSECURECODE = "3桁のセキュリティコードを入力してください";
 	public static final String TC14PASSWORD = "vision2022";
 	public static final String TC14PASSWORDENCRYPTION = "••••••••••";
 
