@@ -15,6 +15,8 @@ import pages.ReservePage;
 
 import java.util.Date;
 
+import static common.helpers.Utils.sleep;
+
 public class ReservePageTest extends TestBaseIOS {
 
     @Test()
@@ -95,7 +97,7 @@ public class ReservePageTest extends TestBaseIOS {
         loginPage.login(tanaka);
 
         Date checkInDate = new Date();
-        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
         Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
@@ -122,7 +124,7 @@ public class ReservePageTest extends TestBaseIOS {
         loginPage.login(tanaka);
 
         Date checkInDate = new Date();
-        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
         Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
@@ -152,7 +154,7 @@ public class ReservePageTest extends TestBaseIOS {
         loginPage.login(tanaka);
 
         Date checkInDate = new Date();
-        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
         Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
@@ -213,7 +215,7 @@ public class ReservePageTest extends TestBaseIOS {
         loginPage.login(tanaka);
 
         Date checkInDate = new Date();
-        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,2);
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
 
         Logger.info("1.「チェックイン日」で本日を設定する");
         reservePage.pickCheckInDate(checkInDate);
@@ -291,28 +293,28 @@ public class ReservePageTest extends TestBaseIOS {
         reservePage.search();
 
         Room room1 = Room.R201;
-        Room room2 = Room.R301;
-        Logger.info("4. 部室名「201」と「301」をチェックする");
+        Room room2 = Room.R401;
+        Logger.info("4. 部室名「201」と「401」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
 
-        Logger.verify("合計が0円から27000円に変更されこと,「201」と「301」をチェックすること");
+        Logger.verify("合計が0円から27000円に変更されこと,「201」と「401」をチェックすること");
         int total = room1.getPrice() + room2.getPrice();
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isCheckedByRoomName(room1.getRoomName()));
         Assert.assertTrue(reservePage.isCheckedByRoomName(room2.getRoomName()));
 
-        Logger.info("5.合計が27000円あること,　部室タイプが「シングル」の部室のみが表示されこと、「201」がチェックすること");
+        Logger.info("5.合計が23000円あること,　部室タイプが「シングル」の部室のみが表示されこと、「201」がチェックすること");
         reservePage.selectSingle();
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isCheckedByRoomName(room1.getRoomName()));
 
-        Logger.info("6.合計が27000円あること,　部室タイプが「ツイン」の部室のみが表示されこと、「301」がチェックすること");
+        Logger.info("6.合計が23000円あること,　部室タイプが「ツイン」の部室のみが表示されこと、「401」がチェックすること");
         reservePage.selectTwin();
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isCheckedByRoomName(room2.getRoomName()));
 
-        Logger.info("7.合計が27000円あること,　全てのデータが表示されこと、「201」と「301」がチェックすること");
+        Logger.info("7.合計が23000円あること,　全てのデータが表示されこと、「201」と「401」がチェックすること");
         reservePage.selectAll();
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isCheckedByRoomName(room1.getRoomName()));
@@ -342,13 +344,15 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Room room = Room.R201;
-        Logger.info("4. 部室名「201」と「301」をチェックする");
-        reservePage.selectRoomByName(room.getRoomName());
-
-        Logger.verify("合計が0円から27000円に変更されこと,「201」と「301」をチェックすること");
-        Assert.assertTrue(reservePage.isTotalDisplayCorrectly(room.getPrice()));
-        Assert.assertTrue(reservePage.isCheckedByRoomName(room.getRoomName()));
+        Room room1 = Room.R201;
+        Room room2 = Room.R401;
+        Logger.info("4. 部室名「201」と「401」をチェックする");
+        reservePage.selectRoomByName(room1.getRoomName());
+        reservePage.selectRoomByName(room2.getRoomName());
+        Logger.verify("合計が0円から23000円に変更されこと,「201」と「401」をチェックすること");
+        Assert.assertTrue(reservePage.isTotalDisplayCorrectly(room1.getPrice()+room2.getPrice()));
+        Assert.assertTrue(reservePage.isCheckedByRoomName(room1.getRoomName()));
+        Assert.assertTrue(reservePage.isCheckedByRoomName(room2.getRoomName()));
 
         Date newCheckInDate = DateHelper.plusDaysInDate(checkInDate,2);
         Date newCheckoutDate = DateHelper.plusDaysInDate(checkInDate,3);
@@ -359,10 +363,10 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("7. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("合計が27000円から0円に変更されこと");
+        Logger.verify("合計が23000円から0円に変更されこと");
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(0));
-        Assert.assertFalse(reservePage.isCheckedByRoomName(room.getRoomName()));
-
+        Assert.assertFalse(reservePage.isCheckedByRoomName(room1.getRoomName()));
+        Assert.assertFalse(reservePage.isCheckedByRoomName(room2.getRoomName()));
     }
 
     @Test()
@@ -388,14 +392,14 @@ public class ReservePageTest extends TestBaseIOS {
         reservePage.search();
 
         Room room1 = Room.R201;
-        Room room2 = Room.R301;
-        Logger.info("4. 部室名「201」と「301」をチェックする");
+        Room room2 = Room.R401;
+        Logger.info("4. 部室名「201」と「401」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         int total = room1.getPrice() + room2.getPrice();
-        Logger.verify("合計が0円から27000円に変更されこと,「201」と「301」をチェックすること");
+        Logger.verify("合計が0円から23000円に変更されこと,「201」と「401」をチェックすること");
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room1));
         Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room2));
@@ -430,15 +434,15 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Room room1 = Room.R401;
-        Room room2 = Room.R301;
-        Logger.info("4. 部室名「401」と「301」をチェックする");
+        Room room1 = Room.R201;
+        Room room2 = Room.R401;
+        Logger.info("4. 部室名「201」と「401」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         int total = room1.getPrice() + room2.getPrice();
-        Logger.verify("合計が0円から27000円に変更されこと,「401」と「301」をチェックすること");
+        Logger.verify("合計が0円から27000円に変更されこと,「201」と「401」をチェックすること");
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(total));
         Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room1));
         Assert.assertTrue(reservePage.isRoomDisplayCorrectlyInPaymentPage(room2));
@@ -463,7 +467,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.verify("「チェックアウト日」が翌日表示されこと");
         Assert.assertTrue(reservePage.isCheckoutDisplayCorrectly(checkoutDate));
 
-        Logger.verify("部室「201」と「301」が消えること");
+        Logger.verify("部室「201」と「401」が消えること");
         Assert.assertFalse(reservePage.isRoomDisplayed(room1));
         Assert.assertFalse(reservePage.isRoomDisplayed(room2));
 
@@ -483,8 +487,8 @@ public class ReservePageTest extends TestBaseIOS {
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
-        Room room = Room.R201;
-        Logger.info("６日後(ex:2023/05/06)から10日後 (ex: 2023/05/10)まで、部室の201を予約した");
+        Room room = Room.R202;
+        Logger.info("６日後(ex:2023/05/06)から10日後 (ex: 2023/05/10)まで、部室の202を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,1);
@@ -498,8 +502,9 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("部室「201」が表示されこと");
+        Logger.verify("部室「202」が表示されこと");
         Assert.assertTrue(reservePage.isRoomDisplayed(room));
+        sleep(20000);
     }
 
     @Test()
@@ -514,8 +519,8 @@ public class ReservePageTest extends TestBaseIOS {
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
-        Room room = Room.R202;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の202を予約した");
+        Room room = Room.R203;
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の203を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,10);
@@ -529,7 +534,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("部室「202」が表示されこと");
+        Logger.verify("部室「203」が表示されこと");
         Assert.assertTrue(reservePage.isRoomDisplayed(room));
     }
 
@@ -545,8 +550,8 @@ public class ReservePageTest extends TestBaseIOS {
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
-        Room room = Room.R203;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の203を予約した");
+        Room room = Room.R204;
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の204を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,1);
@@ -560,7 +565,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("部室「203」が不表示されこと");
+        Logger.verify("部室「204」が不表示されこと");
         Assert.assertFalse(reservePage.isRoomDisplayed(room));
     }
     @Test()
@@ -575,8 +580,8 @@ public class ReservePageTest extends TestBaseIOS {
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
-        Room room = Room.R204;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の204を予約した");
+        Room room = Room.R205;
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の205を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,7);
@@ -590,7 +595,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("部室「204」が不表示されこと");
+        Logger.verify("部室「205」が不表示されこと");
         Assert.assertFalse(reservePage.isRoomDisplayed(room));
     }
     @Test()
@@ -606,8 +611,8 @@ public class ReservePageTest extends TestBaseIOS {
         Date today = new Date();
         Date checkInDate = DateHelper.plusDaysInDate(today,6);
         Date checkoutDate = DateHelper.plusDaysInDate(today,10);
-        Room room = Room.R302;
-        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の302を予約した");
+        Room room = Room.R206;
+        Logger.info("[2023/05/06]から [2023/05/10]まで、部室の206を予約した");
         reservePage.bookRoom(room, checkInDate, checkoutDate);
 
         Date expectCheckInDate =  DateHelper.plusDaysInDate(today,1);
@@ -621,7 +626,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.verify("部室「302」が不表示されこと");
+        Logger.verify("部室「206」が不表示されこと");
         Assert.assertFalse(reservePage.isRoomDisplayed(room));
     }
 

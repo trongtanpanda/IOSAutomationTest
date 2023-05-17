@@ -215,7 +215,7 @@ public class ReservePage extends GeneralPage {
         ckbRoom.setDynamicValue(name);
         WebElement checkBox = DriverManager.getDriver().findElement(By.id("ckb-"+name));
         WebElement table = DriverManager.getDriver().findElement(By.id("searchList"));
-        DriverUtils.scrollDownToElement(table,checkBox);
+        DriverUtils.scrollDownToElement(table, checkBox);
         ckbRoom.waitForDisplay(Constants.SHORT_TIME);
         ckbRoom.click();
     }
@@ -234,26 +234,6 @@ public class ReservePage extends GeneralPage {
         optPostPaid.waitForVisibility(Constants.SHORT_TIME);
         optPostPaid.click();
     }
-
-    public void prePayemnt(PaymentCard paymentCard){
-        optPrepay.waitForVisibility(Constants.SHORT_TIME);
-        optPrepay.click();
-        txtExpiredDate.waitForVisibility(Constants.SHORT_TIME);
-        txtExpiredDate.sendKeys(paymentCard.getExpiredDate());
-        txtNameCard.waitForVisibility(Constants.SHORT_TIME);
-        txtNameCard.sendKeys(paymentCard.getCardName());
-        txtCardNumber.waitForVisibility(Constants.SHORT_TIME);
-        txtCardNumber.sendKeys(paymentCard.getCardNumber());
-        txtCVV.waitForVisibility(Constants.SHORT_TIME);
-        txtCVV.sendKeys(paymentCard.getCVV());
-        txtCVV.sendKeys(Keys.RETURN);
-    }
-
-    public String getDetailRoomLabel() {
-
-        return "lbl201.getText()";
-    }
-
 
 
 }
