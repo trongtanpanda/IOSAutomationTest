@@ -215,7 +215,10 @@ public class ReservePage extends GeneralPage {
         ckbRoom.setDynamicValue(name);
         WebElement checkBox = DriverManager.getDriver().findElement(By.id("ckb-"+name));
         WebElement table = DriverManager.getDriver().findElement(By.id("searchList"));
-        DriverUtils.scrollDownToElement(table,checkBox);
+        if(checkBox.getAttribute("visible")== "false"){
+            DriverUtils.scrollDownToElement(table,checkBox);
+        }
+
         ckbRoom.waitForDisplay(Constants.SHORT_TIME);
         ckbRoom.click();
     }
