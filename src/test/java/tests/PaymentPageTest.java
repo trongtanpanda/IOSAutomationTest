@@ -33,7 +33,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -66,7 +66,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -99,7 +99,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -133,7 +133,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -167,7 +167,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -201,7 +201,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -235,7 +235,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -269,7 +269,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -303,7 +303,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -337,7 +337,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -371,7 +371,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -405,7 +405,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -439,7 +439,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -474,7 +474,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R203.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
@@ -516,7 +516,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「202」をチェックする");
+        Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
