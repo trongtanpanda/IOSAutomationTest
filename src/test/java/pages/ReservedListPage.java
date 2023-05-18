@@ -9,8 +9,11 @@ import common.helpers.LocatorFactory;
 import elements.Button;
 import elements.Label;
 import elements.Table;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.Date;
+import java.util.List;
 
 public class ReservedListPage extends GeneralPage {
 
@@ -103,6 +106,10 @@ public class ReservedListPage extends GeneralPage {
         return tblEmptyList.isDisplayed();
     }
 
-
+    public boolean isFirstItemOnList(Room room){
+        List<WebElement> allResult =  tblResult.getChildElements(By.xpath("//XCUIElementTypeCell"));
+        WebElement element = allResult.get(0).findElement(By.xpath("//XCUIElementTypeStaticText[@name='部屋: "+ room.getRoomName() +"']"));
+        return element.isDisplayed();
+    }
 
 }

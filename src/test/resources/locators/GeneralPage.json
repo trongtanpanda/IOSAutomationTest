@@ -91,5 +91,13 @@
       "IOS:id=Hide year picker"
     ]
   }
-  
+,
+  "tblResult": {
+    "locator": [
+      "Browser:xpath=",
+      "AppBrowser:xpath=",
+      "Android:id=com.agest.bookingapp:id/edtEmail",
+      "IOS:xpath=//XCUIElementTypeTable"
+    ]
+  }
 }

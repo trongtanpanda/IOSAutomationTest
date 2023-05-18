@@ -7,6 +7,7 @@ import drivers.DriverManager;
 import drivers.DriverUtils;
 import elements.Button;
 import elements.DatePicker;
+import elements.Table;
 import elements.TextBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,7 +30,7 @@ public class GeneralPage {
     protected Button btnShowYearPicker = new Button(LocatorFactory.getLocator("showYearPicker"));
     protected Button btnHideYearPicker = new Button(LocatorFactory.getLocator("hideYearPicker"));
     protected Button btnCloseDatePicker = new Button(LocatorFactory.getLocator("btnCloseDatePicker"));
-
+    protected Table tblResult = new Table(LocatorFactory.getLocator("tblResult"));
     protected DatePicker datePicker = new DatePicker(LocatorFactory.getLocator("datePicker"));
     public void logout(){
         btnMenu.waitForVisibility(Constants.SHORT_TIME);

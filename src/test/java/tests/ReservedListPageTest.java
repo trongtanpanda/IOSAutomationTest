@@ -183,9 +183,13 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("6. 後払いをを選択する");
         Logger.info("7. 予約を確認するボタンをクリックする、OKボタンをクリックする");
         reservePage.postPaidPayment();
+        reservePage.payment();
+        reservePage.confirmPayment();
+        reservePage.closeDialog();
         Logger.info("8. メニューをクリックする");
         Logger.info("9. 部室を予約したリストを選択する");
         reservePage.showReservedList();
+        reservedListPage.isFirstItemOnList(Room.R304);
     }
 
     @Test
