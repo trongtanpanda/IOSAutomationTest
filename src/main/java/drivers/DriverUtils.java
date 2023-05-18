@@ -293,7 +293,7 @@ public class DriverUtils {
             TouchAction action = new TouchAction(DriverUtils.getIOSDriver());
             action.longPress(LongPressOptions.longPressOptions()
                             .withElement(ElementOption.element(listView))
-                            )
+                    )
                     .moveTo(ElementOption.element(element))
                     .release()
                     .perform();

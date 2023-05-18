@@ -80,7 +80,11 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
         loginPage.login(new Account().setAccount(User.TANAKA));
-        reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
+
+        Date checkInDate = new Date();
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
+        reservePage.searchData(checkInDate, checkoutDate);
+
         reservePage.selectRoomByName(Room.R301.getRoomName());
         reservePage.gotoPayment();
         reservePage.postPaidPayment();
@@ -104,7 +108,10 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 本日に部屋を予約する（チェックアウト日:翌日, ２０１号室を選択する, 支払方法:　後払い)");
         loginPage.login(new Account().setAccount(User.SUZUKI));
-        reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
+        Date checkInDate = new Date();
+        Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
+        reservePage.searchData(checkInDate, checkoutDate);
+
         reservePage.selectRoomByName(Room.R302.getRoomName());
         reservePage.gotoPayment();
         reservePage.postPaidPayment();
@@ -119,12 +126,12 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("4. チェックイン日フィールドで本日を選択する");
         Logger.info("5. チェックアウト日フィールドで翌日を選択する");
         Logger.info("6. 探すアイコンをクリックする");
-        reservedListPage.searchReservedList(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
+        reservedListPage.searchReservedList(checkInDate, checkoutDate);
         Assert.assertTrue(reservedListPage.isRoomMatchReserved(Room.R302));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
-        Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(TestConstants.TODAY, DateHelper.plusDaysInDate(new Date(), 1)) * Room.R302.getPrice())));
+        Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(checkInDate, checkoutDate) * Room.R302.getPrice())));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
-        Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1)));
+        Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(checkInDate, checkoutDate));
     }
 
     @Test
@@ -150,8 +157,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 任意の日付で５部屋を予約する");
         loginPage.login(new Account().setAccount(User.YAMOTO));
-        reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 5), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 5), 5));
-        reservePage.selectRoomByName(Room.R201.getRoomName());
+        Date checkInDate = DateHelper.plusDaysInDate(new Date(),5);
+        Date checkoutDate = DateHelper.plusDaysInDate(new Date(),10);
+        reservePage.searchData(checkInDate, checkoutDate);
         reservePage.selectRoomByName(Room.R301.getRoomName());
         reservePage.selectRoomByName(Room.R302.getRoomName());
         reservePage.selectRoomByName(Room.R303.getRoomName());
@@ -165,7 +173,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("1. チェックイン日：翌日を選択する");
         Logger.info("2. チェックアウト日：翌日を選択する");
         Logger.info("3. 検索ボタンをクリックする");
-        reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 1), DateHelper.plusDaysInDate(new Date(), 2));
+        Date checkInDate2 = DateHelper.plusDaysInDate(new Date(),1);
+        Date checkoutDate2 = DateHelper.plusDaysInDate(new Date(),2);
+        reservePage.searchData(checkInDate2,checkoutDate2);
         Logger.info("4. 402号室のチェックボックスをクリックする");
         reservePage.selectRoomByName(Room.R304.getRoomName());
         Logger.info("5. 予約画面へボタンをクリックする");
@@ -187,7 +197,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         Logger.info("前提条件: 2. 任意の日付で５部屋を予約する");
         loginPage.login(new Account().setAccount(User.YAMAHA));
-        reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 10), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 10), 5));
+        Date checkInDate = DateHelper.plusDaysInDate(new Date(),10);
+        Date checkoutDate = DateHelper.plusDaysInDate(new Date(),15);
+        reservePage.searchData(checkInDate, checkoutDate);
         reservePage.selectRoomByName(Room.R303.getRoomName());
         reservePage.selectRoomByName(Room.R301.getRoomName());
         reservePage.selectRoomByName(Room.R403.getRoomName());
@@ -216,7 +228,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         loginPage.login(new Account().setAccount(User.HONDA));
         Logger.info("前提条件: 2. 本日に部屋を予約する（チェックイン日：翌日、チェックアウト日：明後日、４０３号室を選択する、支払方法；後払い");
-        reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 11), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 11), 1));
+        Date checkInDate = DateHelper.plusDaysInDate(new Date(),20);
+        Date checkoutDate = DateHelper.plusDaysInDate(new Date(),21);
+        reservePage.searchData(checkInDate, checkoutDate);
         reservePage.selectRoomByName(Room.R403.getRoomName());
         reservePage.gotoPayment();
         reservePage.postPaidPayment();
@@ -231,7 +245,10 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("4. チェックイン日フィールドで明後日を選択する");
         Logger.info("5. チェックアウト日フィールドで３日後を選択する");
         Logger.info("6. 探すアイコンをクリックする");
-        reservedListPage.searchReservedList(DateHelper.plusDaysInDate(new Date(), 2), DateHelper.plusDaysInDate(new Date(), 3));
+        Date startDate = DateHelper.plusDaysInDate(new Date(),2);
+        Date endDate = DateHelper.plusDaysInDate(new Date(),3);
+
+        reservedListPage.searchReservedList(startDate, endDate);
         Assert.assertTrue(reservedListPage.isEmptyList());
     }
 
@@ -244,7 +261,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 1. Yamahaアカウントでログインする");
         loginPage.login(new Account().setAccount(User.YAMAHA));
         Logger.info("前提条件: 2. 本日に部屋を予約する（チェックイン日：翌日、チェックアウト日：明後日、２０６号室を選択する、支払方法；後払い");
-        reservePage.searchData(DateHelper.plusDaysInDate(new Date(), 12), DateHelper.plusDaysInDate(DateHelper.plusDaysInDate(new Date(), 12), 1));
+        Date checkInDate = DateHelper.plusDaysInDate(new Date(),12);
+        Date checkoutDate = DateHelper.plusDaysInDate(new Date(),13);
+        reservePage.searchData(checkInDate, checkoutDate);
         reservePage.selectRoomByName(Room.R401.getRoomName());
         reservePage.gotoPayment();
         reservePage.postPaidPayment();
@@ -260,9 +279,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservePage.showReservedList();
         Assert.assertTrue(reservedListPage.isRoomMatchReserved(Room.R401));
         Assert.assertTrue(reservedListPage.isPaymentMethodMatch(TestConstants.POSTPAID));
-        Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(DateHelper.plusDaysInDate(TestConstants.TODAY, 1), DateHelper.plusDaysInDate(TestConstants.TODAY, 2)) * Room.R401.getPrice())));
+        Assert.assertTrue(reservedListPage.isTotalMatch(CurrencyHelper.currencyConvert(DateHelper.distanceBetweenTwoDays(checkInDate,checkoutDate) * Room.R401.getPrice())));
         Assert.assertTrue(reservedListPage.isBookedDateMatch(TestConstants.TODAY));
-        Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(DateHelper.plusDaysInDate(TestConstants.TODAY, 1), DateHelper.plusDaysInDate(TestConstants.TODAY, 2)));
+        Assert.assertTrue(reservedListPage.isCheckinAndCheckoutMatch(checkInDate,checkoutDate));
 
     }
 
