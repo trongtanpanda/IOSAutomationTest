@@ -494,7 +494,7 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("5. 「Ok」ボタンを押下する");
         paymentPage.closeDialog();
         Assert.assertTrue(reservePage.isCheckInDisplayCorrectly(new Date()));
-        Assert.assertTrue(reservePage.isCheckoutDisplayCorrectly(DateHelper.plusDaysInDate(new Date(), 5)));
+        Assert.assertTrue(reservePage.isCheckoutDisplayCorrectly(DateHelper.plusDaysInDate(new Date(), 1)));
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(0));
         Logger.info("6. メニューアイコンをクリックする");
         Logger.info("７．「部室を予約したリスト」メニュー項目 をクリックする");
