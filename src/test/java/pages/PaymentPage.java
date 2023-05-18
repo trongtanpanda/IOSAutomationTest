@@ -62,8 +62,8 @@ public class PaymentPage extends GeneralPage {
     }
 
     public void payment() {
-//        btnPayment.waitForVisibility(Constants.SHORT_TIME);
-        btnPayment.clickInvisible2();
+        btnPayment.waitForVisibility(Constants.SHORT_TIME);
+        btnPayment.click();
 
     }
 
