@@ -134,8 +134,9 @@ public class ReservePage extends GeneralPage {
     }
 
     public boolean isListRoomByTypeDisplayCorrectly(String type){
+        System.out.println(type);
         tblResult.waitForVisibility(Constants.SHORT_TIME);
-        List<WebElement> listSingleRoom =  tblResult.getChildElements(By.xpath("//XCUIElementTypeStaticText[@name='  タイプ: "+ type +"']"));
+        List<WebElement> listSingleRoom =  tblResult.getChildElements(By.xpath("//XCUIElementTypeStaticText[@name='タイプ: "+ type +"']"));
         List<WebElement> allResult =  tblResult.getChildElements(By.xpath("//XCUIElementTypeButton"));
         return allResult.size() == listSingleRoom.size();
     }
@@ -215,7 +216,7 @@ public class ReservePage extends GeneralPage {
         ckbRoom.setDynamicValue(name);
         WebElement checkBox = DriverManager.getDriver().findElement(By.id("ckb-"+name));
         WebElement table = DriverManager.getDriver().findElement(By.id("searchList"));
-        DriverUtils.scrollDownToElement(table, checkBox);
+        DriverUtils.scrollDownToElement(table,checkBox);
         ckbRoom.waitForDisplay(Constants.SHORT_TIME);
         ckbRoom.click();
     }

@@ -289,17 +289,14 @@ public class DriverUtils {
     }
 
     public static void scrollDownToElement(WebElement listView, WebElement element){
-//        if(element.getAttribute("visible").equals("false")){
+
             TouchAction action = new TouchAction(DriverUtils.getIOSDriver());
             action.longPress(LongPressOptions.longPressOptions()
                             .withElement(ElementOption.element(listView))
-                            .withDuration(Duration.ofMillis(500)))
+                            )
                     .moveTo(ElementOption.element(element))
                     .release()
                     .perform();
-//        }
-
-
     }
 
     private static void scrollToListElement(AppiumDriver driver, Table listView, WebElement element) {
