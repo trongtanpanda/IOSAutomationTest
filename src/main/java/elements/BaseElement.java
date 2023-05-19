@@ -129,15 +129,14 @@ public class BaseElement {
     public void click() {
         getElement().click();
     }
-    public void clickInvisible(int x, int y){
+    public void clickInvisible(){
+        WebElement element = getElement();
         HashMap<String, Object> tapObject = new HashMap<String, Object>();
-        tapObject.put("x", x);
-        tapObject.put("y", y);
+        tapObject.put("x", element.getLocation().getX());
+        tapObject.put("y", element.getLocation().getY());
         DriverUtils.getDriver().executeScript("mobile: tap", tapObject);
     }
-    public void clickInvisible2(){
-        DriverUtils.getDriver().executeScript("arguments[0].click();", getElement());
-    }
+
     public List<WebElement> getChildElements(By by) {
         return getElement().findElements(by);
     }

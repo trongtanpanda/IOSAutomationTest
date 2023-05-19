@@ -508,7 +508,6 @@ public class PaymentPageTest extends TestBaseIOS {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         PaymentPage paymentPage = new PaymentPage();
-        ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件： ユーザーがログインしました");
         Account yamaha = new Account().setAccount(User.YAMAHA);
         loginPage.login(yamaha);
@@ -516,14 +515,14 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.「チェックアウト日」で翌日を設定する");
         Logger.info("3. 検索ボタンを押下する");
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
-        Logger.info("4. 部室名「404」をチェックする");
-        reservePage.selectRoomByName(Room.R404.getRoomName());
+        Logger.info("4. 部室名「202」をチェックする");
+        reservePage.selectRoomByName(Room.R202.getRoomName());
         Logger.info("5.「予約画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1. メニューをクリックする");
         Logger.info("2. 「予約を確認する」ボタンを押下する");
         paymentPage.clickMenuButton();
-        paymentPage.payment();
+        paymentPage.paymentTap();
         Assert.assertTrue(paymentPage.isAlertConfirmPaymentDisplayed());
     }
 }
