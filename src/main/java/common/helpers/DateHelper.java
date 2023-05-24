@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +34,10 @@ public class DateHelper {
     }
 
     public static Date plusDaysInDate(Date date, int days) {
-        return new Date(date.getTime() + (days * (1000 * 24 * 60 * 60)));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_YEAR, days);
+        return calendar.getTime();
     }
     public static String dateToString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
