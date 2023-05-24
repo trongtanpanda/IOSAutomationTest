@@ -77,7 +77,7 @@ public class GeneralPage {
             params.put("order", order);
             params.put("offset", 0.15);
             params.put("element", ((RemoteWebElement) values.get(0)).getId());
-            for(int i = 0; i<gapMonth; i++){
+            for(int i = 0; i<Math.abs(gapMonth); i++){
                 DriverManager.getDriver().executeScript("mobile: selectPickerWheelValue", params);
             }
         }
@@ -87,7 +87,7 @@ public class GeneralPage {
             params.put("order", order);
             params.put("offset", 0.15);
             params.put("element", ((RemoteWebElement) values.get(1)).getId());
-            for(int i = 0; i<gapYear; i++){
+            for(int i = 0; i<Math.abs(gapYear); i++){
                 DriverManager.getDriver().executeScript("mobile: selectPickerWheelValue", params);
             }
         }

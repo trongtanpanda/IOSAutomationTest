@@ -504,7 +504,6 @@ public class ReservePageTest extends TestBaseIOS {
 
         Logger.verify("部室「202」が表示されこと");
         Assert.assertTrue(reservePage.isRoomDisplayed(room));
-        sleep(20000);
     }
 
     @Test()
