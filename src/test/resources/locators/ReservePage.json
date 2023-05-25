@@ -93,7 +93,7 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=",
-      "IOS:id=Ok"
+      "IOS:id=OK"
     ]
   },
   "btnCancel": {

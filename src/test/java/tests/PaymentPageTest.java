@@ -35,7 +35,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -48,7 +48,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setExpiredDate("12/24");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgACNumberDisplayed());
     }
@@ -68,7 +68,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -81,7 +81,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setExpiredDate("12/24");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgACNameDisplayed());
     }
@@ -101,7 +101,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -115,7 +115,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("22223333444455556");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isWrongAccountDialogDisplayed());
     }
@@ -135,7 +135,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -149,7 +149,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("222233334444555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgACNumberDisplayed());
     }
@@ -169,7 +169,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -183,7 +183,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("22223333abc25555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgACNumberDisplayed());
     }
@@ -203,7 +203,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -217,7 +217,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgExpiredDateDisplayed());
     }
@@ -237,7 +237,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -251,7 +251,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgExpiredDateDisplayed());
     }
@@ -271,7 +271,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -285,7 +285,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgExpiredDateDisplayed());
     }
@@ -305,7 +305,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -319,7 +319,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgExpiredDateDisplayed());
     }
@@ -339,7 +339,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -353,7 +353,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgSecureCodeDisplayed());
     }
@@ -373,7 +373,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -387,7 +387,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("33");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgSecureCodeDisplayed());
     }
@@ -407,7 +407,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -421,7 +421,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("abc");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isErrMsgSecureCodeDisplayed());
     }
@@ -441,7 +441,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -455,7 +455,7 @@ public class PaymentPageTest extends TestBaseIOS {
         card.setCardNumber("2222333344445555");
         card.setCVV("333");
         paymentPage.prePayemnt(card);
-        Logger.info("3.「予約を確認する」ボタンを押下");
+        Logger.info("3.「予約する」ボタンを押下");
         paymentPage.payment();
         Assert.assertTrue(paymentPage.isWrongAccountDialogDisplayed());
     }
@@ -476,7 +476,7 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「404」をチェックする");
         reservePage.selectRoomByName(Room.R404.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1.「前払い」オプションを押下する");
         Logger.info("2. 値を入力すろ");
@@ -485,13 +485,13 @@ public class PaymentPageTest extends TestBaseIOS {
         Logger.info("2.3「有効期限」フィールドに「10/26」 を入力する");
         Logger.info("2.4 「cvv」フィールドに「952」 を入力する");
 
-        Logger.info("3.「予約を確認する」ボタンを押下する");
+        Logger.info("3.「予約する」ボタンを押下する");
         PaymentCard card = new PaymentCard().setPaymentCard(Card.VANC);
         paymentPage.prePayemnt(card);
         paymentPage.payment();
-        Logger.info("4. 「Ok」ボタンを押下する");
+        Logger.info("4. 「OK」ボタンを押下する");
         paymentPage.confirmPayment();
-        Logger.info("5. 「Ok」ボタンを押下する");
+        Logger.info("5. 「OK」ボタンを押下する");
         paymentPage.closeDialog();
         Assert.assertTrue(reservePage.isCheckInDisplayCorrectly(new Date()));
         Assert.assertTrue(reservePage.isCheckoutDisplayCorrectly(DateHelper.plusDaysInDate(new Date(), 1)));
@@ -503,7 +503,7 @@ public class PaymentPageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: メニューをクリックした後、「予約を確認する」ボタンはアクションを実行できない")
+    @Description("テスト: メニューをクリックした後、「予約する」ボタンはアクションを実行できない")
     public void TC35() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -517,10 +517,10 @@ public class PaymentPageTest extends TestBaseIOS {
         reservePage.searchData(TestConstants.TODAY, DateHelper.plusDaysInDate(TestConstants.TODAY, 1));
         Logger.info("4. 部室名「202」をチェックする");
         reservePage.selectRoomByName(Room.R202.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 「予約を確認する」ボタンを押下する");
+        Logger.info("2. 「予約する」ボタンを押下する");
         paymentPage.clickMenuButton();
         paymentPage.paymentTap();
         Assert.assertTrue(paymentPage.isAlertConfirmPaymentDisplayed());

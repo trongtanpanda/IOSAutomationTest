@@ -204,7 +204,7 @@ public class ReservePageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: 部室を選択しないで予約画面へをクリックする")
+    @Description("テスト: 部室を選択しないで支払い画面へをクリックする")
     public void TC10() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -226,7 +226,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("3. 検索ボタンを押下する");
         reservePage.search();
 
-        Logger.info("4. 「予約画面へ」ボタンを押下する");
+        Logger.info("4. 「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
 
         Logger.verify("エラーポップアップが表示されこと");
@@ -234,7 +234,7 @@ public class ReservePageTest extends TestBaseIOS {
     }
 
     @Test()
-    @Description("テスト: 部室を選択して予約画面へをクリックする")
+    @Description("テスト: 部室を選択して支払い画面へをクリックする")
     public void TC11() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
@@ -262,7 +262,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.verify("合計が0円から15000円に変更されこと");
         Assert.assertTrue(reservePage.isTotalDisplayCorrectly(room.getPrice()));
 
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
 
         Logger.verify("支払い」画面 が表示されこと");
@@ -396,7 +396,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("4. 部室名「201」と「401」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         int total = room1.getPrice() + room2.getPrice();
         Logger.verify("合計が0円から23000円に変更されこと,「201」と「401」をチェックすること");
@@ -439,7 +439,7 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("4. 部室名「201」と「401」をチェックする");
         reservePage.selectRoomByName(room1.getRoomName());
         reservePage.selectRoomByName(room2.getRoomName());
-        Logger.info("5.「予約画面へ」ボタンを押下する");
+        Logger.info("5.「支払い画面へ」ボタンを押下する");
         reservePage.gotoPayment();
         int total = room1.getPrice() + room2.getPrice();
         Logger.verify("合計が0円から27000円に変更されこと,「201」と「401」をチェックすること");
@@ -450,13 +450,13 @@ public class ReservePageTest extends TestBaseIOS {
         Logger.info("6.「後払い」オプションを押下する");
         reservePage.postPaidPayment();
 
-        Logger.info("7.「予約を確認する」ボタンを押下する");
+        Logger.info("7.「予約する」ボタンを押下する");
         reservePage.payment();
 
-        Logger.info("8.「Ok」ボタンを押下する");
+        Logger.info("8.「OK」ボタンを押下する");
         reservePage.confirmPayment();
 
-        Logger.info("9.「Ok」ボタンを押下する");
+        Logger.info("9.「OK」ボタンを押下する");
         reservePage.closeDialog();
 
         Logger.verify("手順9確認時、「部室予約」画面が表示されこと");

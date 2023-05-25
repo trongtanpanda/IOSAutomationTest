@@ -29,7 +29,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("Precondition: 有効なアカウントでログイン");
         loginPage.login(new Account().setAccount(User.TANAKA));
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
         reservedListPage.showReservedList();
         Assert.assertTrue(reservedListPage.isLabelHeaderrReservedListDisPlayed(TestConstants.LBL_HEADER_RESERVEDLIST));
         Assert.assertTrue(reservedListPage.isMenuButtonDisplayed());
@@ -45,8 +45,8 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("Precondition: 有効なアカウントでログイン");
         loginPage.login(new Account().setAccount(User.TANAKA));
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
-        Logger.info("3. 部屋を予約するオプションを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
+        Logger.info("3. 宿泊予約オプションを選択する");
         reservedListPage.showReservedList();
         reservedListPage.gotoReservePage();
         Assert.assertEquals(reservePage.getLblHeader(), TestConstants.LBL_HEADER);
@@ -61,14 +61,14 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 有効なアカウントでログイン");
         loginPage.login(new Account().setAccount(User.TANAKA));
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
         Logger.info("3. ログアウトオプションを選択する");
         reservedListPage.showReservedList();
         reservedListPage.logout();
         Assert.assertTrue(loginPage.isEmailTextBoxDisplayed());
         Assert.assertTrue(loginPage.isPasswordTextBoxDisplayed());
         Assert.assertTrue(loginPage.isLoginButtonDisPlayed());
-        Assert.assertTrue(loginPage.getLblHeader().equals(TestConstants.LBL_HEADER));
+        Assert.assertTrue(loginPage.getLblHeader().equals(TestConstants.LBL_HEADER_LOGIN));
     }
 
     @Test
@@ -78,7 +78,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
-        Logger.info("前提条件: 2. 本日に部屋を予約する(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
+        Logger.info("前提条件: 2. 本日に宿泊予約(チェックアウト日:翌日, ２０３号室を選択する, 支払方法:　後払い)");
         loginPage.login(new Account().setAccount(User.TANAKA));
 
         Date checkInDate = new Date();
@@ -106,7 +106,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
-        Logger.info("前提条件: 2. 本日に部屋を予約する（チェックアウト日:翌日, ２０１号室を選択する, 支払方法:　後払い)");
+        Logger.info("前提条件: 2. 本日に宿泊予約（チェックアウト日:翌日, ２０１号室を選択する, 支払方法:　後払い)");
         loginPage.login(new Account().setAccount(User.SUZUKI));
         Date checkInDate = new Date();
         Date checkoutDate = DateHelper.plusDaysInDate(checkInDate,1);
@@ -119,9 +119,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservePage.confirmPayment();
         reservePage.closeDialog();
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
         reservePage.showReservedList();
-        Logger.info("3. 検索タイプで検索範囲を選択する");
+        Logger.info("3. 検索タイプで特定期間を表示を選択する");
         reservedListPage.changeSearchType(SearchType.RANGE);
         Logger.info("4. チェックイン日フィールドで本日を選択する");
         Logger.info("5. チェックアウト日フィールドで翌日を選択する");
@@ -143,7 +143,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("前提条件: 有効なアカウントでログイン");
         loginPage.login(new Account().setAccount(User.YAMOTO));
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
         reservePage.showReservedList();
         Assert.assertTrue(reservedListPage.isEmptyList());
     }
@@ -155,7 +155,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
-        Logger.info("前提条件: 2. 任意の日付で５部屋を予約する");
+        Logger.info("前提条件: 2. 任意の日付で５宿泊予約");
         loginPage.login(new Account().setAccount(User.YAMOTO));
         Date checkInDate = DateHelper.plusDaysInDate(new Date(),5);
         Date checkoutDate = DateHelper.plusDaysInDate(new Date(),10);
@@ -178,10 +178,10 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservePage.searchData(checkInDate2,checkoutDate2);
         Logger.info("4. 402号室のチェックボックスをクリックする");
         reservePage.selectRoomByName(Room.R304.getRoomName());
-        Logger.info("5. 予約画面へボタンをクリックする");
+        Logger.info("5. 支払い画面へボタンをクリックする");
         reservePage.gotoPayment();
         Logger.info("6. 後払いをを選択する");
-        Logger.info("7. 予約を確認するボタンをクリックする、OKボタンをクリックする");
+        Logger.info("7. 予約するボタンをクリックする、OKボタンをクリックする");
         reservePage.postPaidPayment();
         reservePage.payment();
         reservePage.confirmPayment();
@@ -193,13 +193,13 @@ public class ReservedListPageTest extends TestBaseIOS {
     }
 
     @Test
-    @Description("テスト:検索範囲オプションで、チェックイン日とチェックアウト日を未入力の場合、空のリストが表示されることを確認する")
+    @Description("テスト:特定期間を表示オプションで、チェックイン日とチェックアウト日を未入力の場合、空のリストが表示されることを確認する")
     public void TC08() {
         LoginPage loginPage = new LoginPage();
         ReservePage reservePage = new ReservePage();
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
-        Logger.info("前提条件: 2. 任意の日付で５部屋を予約する");
+        Logger.info("前提条件: 2. 任意の日付で５宿泊予約");
         loginPage.login(new Account().setAccount(User.YAMAHA));
         Date checkInDate = DateHelper.plusDaysInDate(new Date(),10);
         Date checkoutDate = DateHelper.plusDaysInDate(new Date(),15);
@@ -215,9 +215,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservePage.confirmPayment();
         reservePage.closeDialog();
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
         reservePage.showReservedList();
-        Logger.info("3. 検索範囲オプションを選択する");
+        Logger.info("3. 特定期間を表示オプションを選択する");
         reservedListPage.changeSearchType(SearchType.RANGE);
         Assert.assertTrue(reservedListPage.isEmptyList());
 
@@ -231,7 +231,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. 有効なアカウントでログイン");
         loginPage.login(new Account().setAccount(User.HONDA));
-        Logger.info("前提条件: 2. 本日に部屋を予約する（チェックイン日：翌日、チェックアウト日：明後日、４０３号室を選択する、支払方法；後払い");
+        Logger.info("前提条件: 2. 本日に宿泊予約（チェックイン日：翌日、チェックアウト日：明後日、４０３号室を選択する、支払方法；後払い");
         Date checkInDate = DateHelper.plusDaysInDate(new Date(),20);
         Date checkoutDate = DateHelper.plusDaysInDate(new Date(),21);
         reservePage.searchData(checkInDate, checkoutDate);
@@ -242,9 +242,9 @@ public class ReservedListPageTest extends TestBaseIOS {
         reservePage.confirmPayment();
         reservePage.closeDialog();
         Logger.info("1. メニューをクリックする");
-        Logger.info("2. 部屋を予約したリストを選択する");
+        Logger.info("2. 予約した部屋リストを選択する");
         reservePage.showReservedList();
-        Logger.info("3. 検索範囲オプションを選択する");
+        Logger.info("3. 特定期間を表示オプションを選択する");
         reservedListPage.changeSearchType(SearchType.RANGE);
         Logger.info("4. チェックイン日フィールドで明後日を選択する");
         Logger.info("5. チェックアウト日フィールドで３日後を選択する");
@@ -264,7 +264,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         ReservedListPage reservedListPage = new ReservedListPage();
         Logger.info("前提条件: 1. Yamahaアカウントでログインする");
         loginPage.login(new Account().setAccount(User.YAMAHA));
-        Logger.info("前提条件: 2. 本日に部屋を予約する（チェックイン日：翌日、チェックアウト日：明後日、２０６号室を選択する、支払方法；後払い");
+        Logger.info("前提条件: 2. 本日に宿泊予約（チェックイン日：翌日、チェックアウト日：明後日、２０６号室を選択する、支払方法；後払い");
         Date checkInDate = DateHelper.plusDaysInDate(new Date(),12);
         Date checkoutDate = DateHelper.plusDaysInDate(new Date(),13);
         reservePage.searchData(checkInDate, checkoutDate);

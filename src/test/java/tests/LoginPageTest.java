@@ -59,7 +59,7 @@ public class LoginPageTest extends TestBaseIOS {
         Logger.info("4. ロギングボタンを押下");
         Account account = new Account().setAccount(User.TANAKA);
         loginPage.login(account);
-        Assert.assertEquals(TestConstants.LBL_HEADER,reservePage.getLblHeader());
+        Assert.assertEquals(TestConstants.LBL_HEADER_LOGIN,reservePage.getLblHeader());
     }
 
     @Test()
@@ -150,7 +150,7 @@ public class LoginPageTest extends TestBaseIOS {
         Assert.assertTrue(loginPage.isEmailTextBoxDisplayed());
         Assert.assertTrue(loginPage.isPasswordTextBoxDisplayed());
         Assert.assertTrue(loginPage.isLoginButtonDisPlayed());
-        Assert.assertTrue(loginPage.getLblHeader().equals(TestConstants.LBL_HEADER));
+        Assert.assertTrue(loginPage.getLblHeader().equals(TestConstants.LBL_HEADER_LOGIN));
         }
 
     @Test()
@@ -165,7 +165,7 @@ public class LoginPageTest extends TestBaseIOS {
         Logger.info("4. ロギングボタンを押下");
         Account yamaha = new Account().setAccount(User.YAMAHA);
         loginPage.login(yamaha);
-        Assert.assertEquals(TestConstants.LBL_HEADER,reservePage.getLblHeader());
+        Assert.assertEquals(TestConstants.LBL_HEADER_LOGIN,reservePage.getLblHeader());
     }
 
     @Test()
@@ -176,7 +176,7 @@ public class LoginPageTest extends TestBaseIOS {
         Assert.assertTrue(loginPage.isEmailTextBoxDisplayed());
         Assert.assertTrue(loginPage.isPasswordTextBoxDisplayed());
         Assert.assertTrue(loginPage.isLoginButtonDisPlayed());
-        Assert.assertTrue(loginPage.getLblHeader().equals(TestConstants.LBL_HEADER));
+        Assert.assertTrue(loginPage.getLblHeader().equals(TestConstants.LBL_HEADER_LOGIN));
     }
 
     @Test()

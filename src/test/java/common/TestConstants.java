@@ -21,7 +21,9 @@ public class TestConstants {
 
 	public static final String BOOKED_ROOM = "予約した部屋";
 	public static final String LOGOUT = "ログアウト";
-	public static final String LBL_HEADER = "予約室";
+	public static final String LBL_HEADER = "部屋の予約";
+	public static final String LBL_HEADER_LOGIN = "宿泊予約";
+
 	public static final String PLACEHOLDER_EMAIL = "メール";
 	public static final String PLACEHOLDER_PASSWORD = "パスワード";
 
@@ -31,7 +33,7 @@ public class TestConstants {
 	public static final Date TODAY = new Date();
 	public static final String ERRTITLEDIALOG= "失敗";
 	public static final String ERRMSGDIALOG = "無効なアカウントです。再入力してください";
-	public static final String SUCCESSTITLEDIALOG = "成功";
+	public static final String SUCCESSTITLEDIALOG = "予約が完了しました";
 	public static final String SUCCESSMSGDIALOG = "予約が成功したことを確認する";
 	public static final String ERRMSGACNAMECARD = "カード所有者の名前は大文字にする必要があります";
 	public static final String ERRMSGACNUMBER = "カード番号は16桁である必要があります";
@@ -74,7 +76,7 @@ public class TestConstants {
 	public static final String PT3_TC03_SELECT_ROOM_1 = "201";
 	public static final String PT3_TC03_CHECK_IN_DAY_1 = "2023/08/27";
 	public static final String PT3_TC03_CHECK_OUT_DAY_1 = "2023/08/29";
-	public static final String PREPAYMENT = "元払い";
+	public static final String PREPAYMENT = "事前決済";
 	public static final String POSTPAID = "後払い";
 
 }

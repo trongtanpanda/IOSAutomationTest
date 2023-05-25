@@ -34,8 +34,6 @@ public class ReservedListPage extends GeneralPage {
 
 
     public void changeSearchType(SearchType searchType){
-        btnSearchType.waitForVisibility(Constants.SHORT_TIME);
-        btnSearchType.click();
         if(searchType == SearchType.RANGE){
             btnSearchRange.waitForVisibility(Constants.SHORT_TIME);
             btnSearchRange.click();
@@ -51,7 +49,7 @@ public class ReservedListPage extends GeneralPage {
     }
 
     public boolean isSearchTypeButtonDisplayed(){
-        return btnSearchType.isDisplayed();
+        return btnSearchRange.isDisplayed();
     }
 
     public void searchReservedList(Date checkin, Date checkout) {

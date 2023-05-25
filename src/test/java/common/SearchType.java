@@ -1,8 +1,8 @@
 package common;
 
 public enum SearchType {
-    ALL_RECORDS("全記録"),
-    RANGE("検索範囲");
+    ALL_RECORDS("全て表示"),
+    RANGE("特定期間を表示");
 
     private final String value;
 
