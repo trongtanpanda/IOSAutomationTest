@@ -17,8 +17,6 @@ import pages.ReservedListPage;
 
 import java.util.Date;
 
-import static common.helpers.Utils.sleep;
-
 public class ReservedListPageTest extends TestBaseIOS {
 
     @Test()
@@ -49,7 +47,7 @@ public class ReservedListPageTest extends TestBaseIOS {
         Logger.info("3. 宿泊予約オプションを選択する");
         reservedListPage.showReservedList();
         reservedListPage.gotoReservePage();
-        Assert.assertEquals(reservePage.getLblHeader(), TestConstants.LBL_HEADER);
+        Assert.assertEquals(reservePage.getLblHeader(), TestConstants.LBL_HEADER_RESERVE);
         Assert.assertTrue(reservePage.isMenuButtonDisplayed());
     }
 

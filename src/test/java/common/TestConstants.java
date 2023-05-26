@@ -1,7 +1,6 @@
 package common;
 
 import objectData.Account;
-import objectData.PaymentCard;
 
 import java.util.Date;
 
@@ -21,10 +20,10 @@ public class TestConstants {
 
 	public static final String BOOKED_ROOM = "予約した部屋";
 	public static final String LOGOUT = "ログアウト";
-	public static final String LBL_HEADER = "部屋の予約";
+	public static final String LBL_HEADER_RESERVE = "部屋の予約";
 	public static final String LBL_HEADER_LOGIN = "宿泊予約";
 
-	public static final String PLACEHOLDER_EMAIL = "メール";
+	public static final String PLACEHOLDER_EMAIL = "メールアドレス";
 	public static final String PLACEHOLDER_PASSWORD = "パスワード";
 
 	public static final String ERRORMESSAGE = "有効なアカウントを入力してください";

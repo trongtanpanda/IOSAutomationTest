@@ -1,6 +1,5 @@
 package tests;
 
-import common.Constants;
 import common.TestConstants;
 import common.User;
 import common.helpers.Logger;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import pages.GeneralPage;
 import pages.LoginPage;
 import pages.ReservePage;
-import tests.TestBaseIOS;
 
 public class LoginPageTest extends TestBaseIOS {
 
@@ -59,7 +57,7 @@ public class LoginPageTest extends TestBaseIOS {
         Logger.info("4. ロギングボタンを押下");
         Account account = new Account().setAccount(User.TANAKA);
         loginPage.login(account);
-        Assert.assertEquals(TestConstants.LBL_HEADER_LOGIN,reservePage.getLblHeader());
+        Assert.assertEquals(TestConstants.LBL_HEADER_RESERVE,reservePage.getLblHeader());
     }
 
     @Test()
@@ -165,7 +163,7 @@ public class LoginPageTest extends TestBaseIOS {
         Logger.info("4. ロギングボタンを押下");
         Account yamaha = new Account().setAccount(User.YAMAHA);
         loginPage.login(yamaha);
-        Assert.assertEquals(TestConstants.LBL_HEADER_LOGIN,reservePage.getLblHeader());
+        Assert.assertEquals(TestConstants.LBL_HEADER_RESERVE,reservePage.getLblHeader());
     }
 
     @Test()
