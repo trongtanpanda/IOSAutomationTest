@@ -151,7 +151,7 @@
       "Browser:xpath=",
       "AppBrowser:xpath=",
       "Android:id=",
-      "IOS:xpath=//XCUIElementTypeAlert[@name=\"確認？\"]"
+      "IOS:xpath=//XCUIElementTypeAlert[@name=\"確認\"]"
     ]
   }
 }
