@@ -150,8 +150,8 @@ public class ReservePage extends GeneralPage {
         String expectedRoomName = "部屋: " + room.getRoomName();
         String expectedRoomType = "タイプ: " + room.getRoomType();
         String expectedRoomPrice = "価格: ¥" + CurrencyHelper.currencyConvert(room.getPrice());
-        String expectedRoomFloor = "階: " + room.getFloor();
-        String expectedRoomDescription = "記述: " + room.getDescription();
+        String expectedRoomFloor = "床: " + room.getFloor();
+        String expectedRoomDescription = "情報: " + room.getDescription();
         Boolean isInfoCorrectly = expectedRoomType.equals(actualRoomType) && expectedRoomName.equals(actualRoomName) && expectedRoomPrice.equals(actualRoomPrice)
                 && expectedRoomFloor.equals(actualRoomFloor) && expectedRoomDescription.equals(actualRoomDescription);
         Boolean isDisplay = lblDetailRoomName.isDisplayed() && lblDetailRoomType.isDisplayed() && lblDetailDescription.isDisplayed()
