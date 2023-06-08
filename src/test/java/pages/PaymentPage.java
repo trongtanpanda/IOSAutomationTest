@@ -52,10 +52,12 @@ public class PaymentPage extends GeneralPage {
         optPrepay.click();
         txtNameCard.waitForVisibility(Constants.SHORT_TIME);
         txtNameCard.sendKeys(paymentCard.getCardName());
+        txtNameCard.sendKeys(Keys.RETURN);
         txtCardNumber.waitForVisibility(Constants.SHORT_TIME);
         txtCardNumber.sendKeys(paymentCard.getCardNumber());
         txtCardNumber.sendKeys(Keys.RETURN);
         txtExpiredDate.sendKeys(paymentCard.getExpiredDate());
+        txtExpiredDate.sendKeys(Keys.RETURN);
         txtCVV.waitForVisibility(Constants.SHORT_TIME);
         txtCVV.sendKeys(paymentCard.getCVV());
         txtCVV.sendKeys(Keys.RETURN);
